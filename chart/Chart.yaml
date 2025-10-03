@@ -1,0 +1,24 @@
+---
+apiVersion: v2
+type: application
+name: external-dns-watcher
+description: Watch any resource and generate External DNS records
+version: 1.0.0
+appVersion: 1.0.0
+home: https://github.com/kubehippie/external-dns-watcher
+icon: https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/hetzner.svg
+keywords:
+  - external-dns
+  - watcher
+  - cluster-api
+maintainers:
+  - email: thomas@webhippie.de
+    name: tboerger
+    url: https://github.com/tboerger
+annotations:
+  artifacthub.io/license: Apache-2.0
+  artifacthub.io/signKey: |
+    fingerprint: TODO
+    url: https://dl.webhippie.de/kubehippie.key
+
+...

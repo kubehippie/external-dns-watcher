@@ -1,0 +1,26 @@
+---
+# yaml-language-server: $schema=https://www.schemastore.org/yamllint.json
+extends: default
+
+ignore: |
+  .github/
+  chart/templates/
+  config/default/
+  config/manager/
+  config/network-policy/
+  config/prometheus/
+  config/rbac/
+  dist/
+
+rules:
+  line-length: disable
+
+  document-end:
+    level: error
+  document-start:
+    level: error
+
+  indentation:
+    spaces: 2
+
+...

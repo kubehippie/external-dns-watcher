@@ -1,0 +1,24 @@
+{{- if .Values.rbac.enable }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "chart.fullname" . }}-manager
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+rules:
+- apiGroups:
+    - externaldns.k8s.io
+  resources:
+    - dnsendpoints
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
+{{- with .Values.rbac.extraRules }}
+{{- toYaml . }}
+{{- end }}
+{{- end -}}

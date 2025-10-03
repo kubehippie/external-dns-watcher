@@ -1,0 +1,138 @@
+---
+# -- Override the name
+nameOverride: ""
+
+# -- Override the fullname
+fullnameOverride: ""
+
+# -- Number of replicas for the controller
+replicas: 1
+
+# -- Security context for the deployment
+securityContext:
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+
+# -- Security context for the controller
+podSecurityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+      - ALL
+
+image:
+  # -- Repository of the controller
+  repository: ghcr.io/kubehippie/external-dns-watcher
+
+  # -- Tag of the controller
+  tag: ""
+
+  # -- Image pull policy
+  imagePullPolicy: IfNotPresent
+
+# -- Arguments for the controller
+args:
+  - -leader-elect
+
+# -- Liveness probe for the controller
+livenessProbe:
+  initialDelaySeconds: 15
+  periodSeconds: 20
+  httpGet:
+    path: /healthz
+    port: healthz
+
+# -- Readiness probe for the controller
+readinessProbe:
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  httpGet:
+    path: /readyz
+    port: healthz
+
+# -- Update strategy for deployment
+updateStrategy:
+  type: Recreate
+
+# -- Resources available for the controller
+resources:
+  limits:
+    cpu: 500m
+    memory: 128Mi
+  requests:
+    cpu: 10m
+    memory: 64Mi
+
+serviceAccount:
+  # -- Create a service account
+  create: true
+
+  # -- Service account name
+  name:
+
+  # -- Annotations for service account
+  annotations: {}
+
+rbac:
+  # -- Enable role-based access control
+  enable: true
+
+  # -- Extra rules for the role of the controller
+  extraRules: []
+
+crd:
+  # -- Install CRDs if we provide some
+  enable: true
+
+  # -- Enable to add a helm.sh/resource-policy annotation
+  keep: true
+
+metrics:
+  # -- Enable the export of metrics
+  enable: true
+
+serviceMonitor:
+  # -- Enable a service monitor
+  enable: false
+
+certmanager:
+  # -- Enable Cert Manager integration
+  enable: false
+
+networkPolicy:
+  # -- Enable builtin network policies
+  enable: false
+
+  # -- Match to allow the ingress traffic
+  from:
+    - namespaceSelector:
+        matchLabels:
+          metrics: enabled
+
+# -- Define additional annotations
+annotations: {}
+
+# -- Define additional annotations for the pod
+podAnnotations: {}
+
+# -- Define additional labels
+labels: {}
+
+# -- Define additional labels for the pod
+podLabels: {}
+
+# -- Config mounted into the controller
+config:
+  watches:
+    - group: infrastructure.cluster.x-k8s.io
+      version: v1beta1
+      kind: HetznerCluster
+      recordTemplate: "{{ .Name }}-control-plane.example.com"
+      paths:
+        - path: "$.status.controlPlaneLoadBalancer.ipv4"
+          type: A
+        - path: "$.status.controlPlaneLoadBalancer.ipv6"
+          type: AAAA
+
+...

@@ -1,0 +1,73 @@
+---
+# yaml-language-server: $schema=https://www.schemastore.org/github-workflow.json
+name: release
+
+"on":
+  workflow_dispatch:
+  schedule:
+    - cron: "0 8 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate token
+        id: token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.TOKEN_EXCHANGE_APP }}
+          installation_retrieval_mode: id
+          installation_retrieval_payload: ${{ secrets.TOKEN_EXCHANGE_INSTALL }}
+          private_key: ${{ secrets.TOKEN_EXCHANGE_KEY }}
+          permissions: >-
+            {"contents": "write", "packages": "write"}
+
+      - name: Checkout source
+        uses: actions/checkout@v5
+        with:
+          token: ${{ steps.token.outputs.token }}
+
+      - name: Setup helm
+        uses: azure/setup-helm@v4
+
+      - name: Build deps
+        working-directory: chart
+        run: helm dependency build
+
+      - name: Write buildtime
+        run: date >| .github/RELEASE
+
+      - name: Install releaser
+        run: |
+          npm install -g \
+            conventional-changelog-conventionalcommits@6.1.0 \
+            semantic-release@23.1.1 \
+            @semantic-release/changelog \
+            @semantic-release/git \
+            semantic-release-helm3
+
+      - name: Run releaser
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+          REGISTRY_USERNAME: bothippie
+          REGISTRY_PASSWORD: ${{ secrets.BOT_ACCESS_TOKEN }}
+        run: semantic-release
+
+      - name: Source rebase
+        run: git pull --autostash --rebase
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: GitHub Actions
+          author_email: github@webhippie.de
+          add: .github/RELEASE
+          message: "docs: automated release update [skip ci]"
+          push: true
+          commit: --signoff
+
+...

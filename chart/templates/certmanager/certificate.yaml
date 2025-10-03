@@ -1,0 +1,41 @@
+{{- if .Values.certmanager.enable }}
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: {{ include "chart.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+{{- with .Values.annotation }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+{{- end }}
+spec:
+  selfSigned: {}
+{{- if .Values.metrics.enable }}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "chart.fullname" . }}-metrics
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+  annotations:
+    {{- if .Values.crd.keep }}
+    "helm.sh/resource-policy": keep
+    {{- end }}
+{{- with .Values.annotation }}
+    {{- toYaml . | nindent 4 }}
+{{- end }}
+spec:
+  secretName: {{ include "chart.fullname" . }}-metrics
+  dnsNames:
+    - {{ include "chart.fullname" . }}.{{ .Release.Namespace }}.svc
+    - {{ include "chart.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
+    - {{ include "chart.fullname" . }}-metrics.{{ .Release.Namespace }}.svc
+  issuerRef:
+    kind: Issuer
+    name: {{ include "chart.fullname" . }}
+{{- end }}
+{{- end }}

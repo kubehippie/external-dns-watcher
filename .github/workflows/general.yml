@@ -1,0 +1,120 @@
+---
+# yaml-language-server: $schema=https://www.schemastore.org/github-workflow.json
+name: general
+
+"on":
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup golang
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Run linter
+        uses: golangci/golangci-lint-action@v8
+        with:
+          version: v2.4.0
+
+  chart:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone the code
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Install tools
+        uses: alexellis/arkade-get@master
+        with:
+          kubectl: latest
+          kind: latest
+          helm: latest
+
+      - name: Lint chart
+        run: |
+          helm lint ./chart
+
+      - name: Create cluster
+        run: |
+          kind create cluster
+
+      - name: Prepare image
+        run: |
+          make docker-build IMG=external-dns-watcher:0.0.0
+          kind load docker-image external-dns-watcher:0.0.0
+
+      - name: Install chart
+        run: |
+          helm install \
+            my-release \
+            ./chart \
+            --create-namespace \
+            --namespace external-dns-watcher \
+            --set image.repository=external-dns-watcher \
+            --set image.tag=0.0.0 \
+            --set image.imagePullPolicy=IfNotPresent
+
+      - name: Check status
+        run: |
+          helm status \
+            my-release \
+            --namespace external-dns-watcher
+
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup golang
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Run tests
+        run: make test
+
+  # e2e:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Checkout source
+  #       uses: actions/checkout@v4
+
+  #     - name: Setup golang
+  #       uses: actions/setup-go@v5
+  #       with:
+  #         go-version-file: go.mod
+
+  #     - name: Install tools
+  #       uses: alexellis/arkade-get@master
+  #       with:
+  #         kubectl: latest
+  #         kind: latest
+
+  #     - name: Run tests
+  #       run: make test-e2e
+
+...

@@ -1,0 +1,15 @@
+---
+# yaml-language-server: $schema=https://json-schema.org/draft-07/schema#
+watches:
+  - group: infrastructure.cluster.x-k8s.io
+    version: v1beta1
+    kind: HetznerCluster
+    namespace: default
+    recordTemplate: "{{ .Name }}-control-plane.example.com"
+    paths:
+      - path: "$.status.controlPlaneLoadBalancer.ipv4"
+        type: A
+      - path: "$.status.controlPlaneLoadBalancer.ipv6"
+        type: AAAA
+
+...

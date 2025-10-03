@@ -1,0 +1,108 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "chart.fullname" . }}-controller-manager
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+    control-plane: controller-manager
+{{- with .Values.annotation }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+{{- end }}
+spec:
+  replicas: {{ .Values.replicas }}
+  {{- if .Values.updateStrategy }}
+  strategy:
+    {{- toYaml .Values.updateStrategy | nindent 4 }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "chart.selectorLabels" . | nindent 6 }}
+      control-plane: controller-manager
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/default-container: manager
+        {{- if .Values.podAnnotations }}
+        {{- toYaml .Values.podAnnotations | nindent 8 }}
+        {{- end }}
+      labels:
+        {{- include "chart.labels" . | nindent 8 }}
+        control-plane: controller-manager
+        {{- if .Values.podLabels }}
+        {{- toYaml .Values.podLabels | nindent 8 }}
+        {{- end }}
+    spec:
+      serviceAccountName: {{ include "chart.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.securityContext | nindent 8 }}
+      volumes:
+        {{- if .Values.config }}
+        - name: server-config
+          configMap:
+            name: {{ include "chart.fullname" . }}-config
+        {{- end }}
+        {{- if and .Values.certmanager.enable .Values.metrics.enable }}
+        - name: metrics-certs
+          secret:
+            secretName: {{ include "chart.fullname" . }}-metrics
+        {{- end }}
+      containers:
+        - name: manager
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
+          {{- if .Values.imagePullPolicy }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          {{- end }}
+          securityContext:
+            {{- toYaml .Values.podSecurityContext | nindent 12 }}
+          command:
+            - /manager
+          args:
+            - -health-probe-bind-address=:8081
+            {{- if .Values.metrics.enable }}
+            {{- if .Values.certmanager.enable }}
+            - -metrics-bind-address=:8443
+            - -metrics-cert-path=/certs
+            {{- else }}
+            - -metrics-bind-address=:8080
+            {{- end }}
+            {{- end }}
+            {{- if .Values.config }}
+            - -config-file=/config/config.yaml
+            {{- end }}
+            {{- range .Values.args }}
+            - {{ . }}
+            {{- end }}
+          {{- if .Values.env }}
+          env:
+            {{- toYaml .Values.env | nindent 12 }}
+          {{- end }}
+          ports:
+            - name: healthz
+              containerPort: 8081
+              protocol: TCP
+            {{- if .Values.metrics.enable }}
+            - name: metrics
+             {{- if .Values.certmanager.enable }}
+              containerPort: 8443
+              {{- end }}
+              protocol: TCP
+            {{- end }}
+          livenessProbe:
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            {{- if .Values.config }}
+            - name: server-config
+              mountPath: /config
+              readOnly: true
+            {{- end }}
+            {{- if and .Values.certmanager.enable .Values.metrics.enable }}
+            - name: metrics-certs
+              mountPath: /certs
+              readOnly: true
+            {{- end }}

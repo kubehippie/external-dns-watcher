@@ -1,0 +1,38 @@
+{{- if .Values.serviceMonitor.enable }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "chart.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+spec:
+  endpoints:
+    - path: /metrics
+      bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+      {{- if .Values.certmanager.enable }}
+      port: https
+      scheme: https
+      tlsConfig:
+        serverName: {{ include "chart.fullname" . }}-metrics.{{ .Release.Namespace }}.svc
+        insecureSkipVerify: false
+        ca:
+          secret:
+            name: {{ include "chart.fullname" . }}-metrics
+            key: ca.crt
+        cert:
+          secret:
+            name: {{ include "chart.fullname" . }}-metrics
+            key: tls.crt
+        keySecret:
+          name: {{ include "chart.fullname" . }}-metrics
+          key: tls.key
+      {{- else }}
+      port: http
+      scheme: http
+      {{- end }}
+  selector:
+    matchLabels:
+      {{- include "chart.labels" . | nindent 6 }}
+      control-plane: controller-manager
+{{- end }}

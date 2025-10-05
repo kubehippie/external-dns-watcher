@@ -84,8 +84,10 @@ spec:
               protocol: TCP
             {{- if .Values.metrics.enable }}
             - name: metrics
-             {{- if .Values.certmanager.enable }}
+              {{- if .Values.certmanager.enable }}
               containerPort: 8443
+              {{- else }}
+              containerPort: 8080
               {{- end }}
               protocol: TCP
             {{- end }}

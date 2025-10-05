@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Generate token
         id: token
-        uses: tibdex/github-app-token@v2
+        uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2
         with:
           app_id: ${{ secrets.TOKEN_EXCHANGE_APP }}
           installation_retrieval_mode: id
@@ -29,18 +29,18 @@ jobs:
             {"contents": "write", "issues": "write", "models": "read"}
 
       - name: Checkout source
-        uses: actions/checkout@v5
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
         with:
           token: ${{ steps.token.outputs.token }}
           fetch-depth: 0
 
       - name: Setup golang
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5
         with:
           go-version-file: go.mod
 
       - name: Setup kubebuilder
-        uses: actionhippie/setup-kubebuilder@v1
+        uses: actionhippie/setup-kubebuilder@ed3b6c44de55a5452226f09de1fcdbea1c83db3c # v1
 
       - name: Setup models
         run: gh extension install github/gh-models --force

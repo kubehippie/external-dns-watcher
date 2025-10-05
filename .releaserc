@@ -113,7 +113,8 @@
             "semantic-release-helm3",
             {
                 "chartPath": "chart",
-                "registry": "ghcr.io/kubehippie/charts"
+                "registry": "ghcr.io/kubehippie/charts",
+                "populateChangelog": true
             }
         ],
         [

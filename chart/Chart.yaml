@@ -17,9 +17,7 @@ maintainers:
     url: https://github.com/tboerger
 annotations:
   artifacthub.io/license: Apache-2.0
-  artifacthub.io/signKey: |
-    fingerprint: TODO
-    url: https://dl.webhippie.de/kubehippie.key
+  artifacthub.io/operator: "true"
   artifacthub.io/changes: |+
     ## 1.0.0 (2025-10-05)
 

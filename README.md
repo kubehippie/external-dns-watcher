@@ -1,6 +1,6 @@
 # external-dns-watcher
 
-[![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/kubehippie/external-dns-watcher) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/kubehippie-external-dns-watcher)](https://artifacthub.io/packages/helm/kubehippie/external-dns-watcher)
+[![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/kubehippie/external-dns-watcher) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/kubehippie)](https://artifacthub.io/packages/helm/kubehippie/external-dns-watcher)
 
 This small controller can watch a configurable set of resources within a
 Kubernetes cluster and generate `DNSEndpoint` resources which are part of

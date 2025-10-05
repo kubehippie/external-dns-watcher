@@ -50,7 +50,11 @@ rulesets:
           required_status_checks:
             - context: Semantic PR
               integration_id: 198092
-            - context: general
+            - context: general / lint
+              integration_id: 15368
+            - context: general / chart
+              integration_id: 15368
+            - context: general / tests
               integration_id: 15368
     bypass_actors:
       - actor_id: 1

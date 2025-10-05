@@ -2,5 +2,14 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>kubehippie/.github//renovate/preset"
+  ],
+  "packageRules": [
+    {
+      "description": "Disable digest pinning",
+      "matchPackageNames": [
+        "ghcr.io/kubehippie/external-dns-watcher"
+      ],
+      "pinDigests": false
+    }
   ]
 }

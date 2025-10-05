@@ -9,7 +9,9 @@
       "matchPackageNames": [
         "ghcr.io/kubehippie/external-dns-watcher"
       ],
-      "pinDigests": false
+      "pinDigests": false,
+      "semanticCommitType": "chore",
+      "semanticCommitScope": "deps"
     }
   ]
 }

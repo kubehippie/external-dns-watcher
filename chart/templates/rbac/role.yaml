@@ -6,19 +6,19 @@ metadata:
   labels:
     {{- include "chart.labels" . | nindent 4 }}
 rules:
-- apiGroups:
-    - externaldns.k8s.io
-  resources:
-    - dnsendpoints
-  verbs:
-    - create
-    - delete
-    - get
-    - list
-    - patch
-    - update
-    - watch
-{{- with .Values.rbac.extraRules }}
-{{- toYaml . }}
-{{- end }}
+  - apiGroups:
+      - externaldns.k8s.io
+    resources:
+      - dnsendpoints
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  {{- if .Values.rbac.extraRules }}
+  {{- toYaml .Values.rbac.extraRules | nindent 2 }}
+  {{- end }}
 {{- end -}}

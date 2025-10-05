@@ -102,14 +102,7 @@ Copyright (c) 2025 Thomas Boerger <thomas@webhippie.de>
 
 [external-dns]: https://kubernetes-sigs.github.io/external-dns/
 [cluster-api]: https://cluster-api.sigs.k8s.io/
+[helm]: https://helm.sh/
 [nix]: https://nixos.org/
 [golang]: http://golang.org/doc/install.html
 [direnv]: https://direnv.net/
-
-
-
-[nodejs]: https://nodejs.org/en/download/package-manager/
-[gotask]: https://taskfile.dev/installation/
-[direnv]: https://direnv.net/
-[devenv]: https://devenv.sh/
-[devcontainer]: https://containers.dev/

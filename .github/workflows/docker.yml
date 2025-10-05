@@ -70,14 +70,4 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Sign images
-        if: github.event_name != 'pull_request'
-        env:
-          COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
-          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
-        run: |
-          echo "${{ steps.meta.outputs.tags }}" | while read -r TAG; do
-            cosign sign --yes --key env://COSIGN_KEY ${TAG}
-          done
-
 ...

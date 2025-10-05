@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/kubehippie/external-dns-watcher/compare/v1.0.0...v1.0.1) (2025-10-05)
+
+
+### Bugfixes
+
+* resolve issue with extraRoles indentation ([be6cd29](https://github.com/kubehippie/external-dns-watcher/commit/be6cd2991e5e8de736508facf82c307ab0477cad))
+
 ## 1.0.0 (2025-10-05)
 
 

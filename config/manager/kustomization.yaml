@@ -5,4 +5,4 @@ kind: Kustomization
 images:
 - name: controller
   newName: ghcr.io/kubehippie/external-dns-watcher
-  newTag: 0.0.1
+  newTag: v1.0.0

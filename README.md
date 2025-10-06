@@ -80,7 +80,7 @@ direnv allow
 ## Security
 
 If you find a security issue please contact
-[security@cloudhippie.de](mailto:thomas@webhippie.de) first.
+[thomas@webhippie.de](mailto:thomas@webhippie.de) first.
 
 ## Contributing
 

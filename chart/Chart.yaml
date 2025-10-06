@@ -3,8 +3,8 @@ apiVersion: v2
 type: application
 name: external-dns-watcher
 description: Watch any resource and generate External DNS records
-version: 1.0.1
-appVersion: 1.0.1
+version: 1.0.2
+appVersion: 1.0.2
 home: https://github.com/kubehippie/external-dns-watcher
 icon: https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/hetzner.svg
 keywords:
@@ -19,11 +19,11 @@ annotations:
   artifacthub.io/license: Apache-2.0
   artifacthub.io/operator: "true"
   artifacthub.io/changes: |+
-    ## [1.0.1](https://github.com/kubehippie/external-dns-watcher/compare/v1.0.0...v1.0.1) (2025-10-05)
+    ## [1.0.2](https://github.com/kubehippie/external-dns-watcher/compare/v1.0.1...v1.0.2) (2025-10-06)
 
 
     ### Bugfixes
 
-    * resolve issue with extraRoles indentation ([be6cd29](https://github.com/kubehippie/external-dns-watcher/commit/be6cd2991e5e8de736508facf82c307ab0477cad))
+    * drop controller-manager suffix from deployment on chart ([9c22fb8](https://github.com/kubehippie/external-dns-watcher/commit/9c22fb804099c4ae0f4a83c81e1a7f5d390d217e))
 
 ...

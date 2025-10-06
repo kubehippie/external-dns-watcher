@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/kubehippie/external-dns-watcher/compare/v1.0.1...v1.0.2) (2025-10-06)
+
+
+### Bugfixes
+
+* drop controller-manager suffix from deployment on chart ([9c22fb8](https://github.com/kubehippie/external-dns-watcher/commit/9c22fb804099c4ae0f4a83c81e1a7f5d390d217e))
+
 ## [1.0.1](https://github.com/kubehippie/external-dns-watcher/compare/v1.0.0...v1.0.1) (2025-10-05)
 
 

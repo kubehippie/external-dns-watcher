@@ -3,8 +3,8 @@ apiVersion: v2
 type: application
 name: external-dns-watcher
 description: Watch any resource and generate External DNS records
-version: 1.0.2
-appVersion: 1.0.2
+version: 1.0.3
+appVersion: 1.0.3
 home: https://github.com/kubehippie/external-dns-watcher
 icon: https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/hetzner.svg
 keywords:
@@ -19,11 +19,13 @@ annotations:
   artifacthub.io/license: Apache-2.0
   artifacthub.io/operator: "true"
   artifacthub.io/changes: |+
-    ## [1.0.2](https://github.com/kubehippie/external-dns-watcher/compare/v1.0.1...v1.0.2) (2025-10-06)
+    ## [1.0.3](https://github.com/kubehippie/external-dns-watcher/compare/v1.0.2...v1.0.3) (2025-10-13)
 
 
     ### Bugfixes
 
-    * drop controller-manager suffix from deployment on chart ([9c22fb8](https://github.com/kubehippie/external-dns-watcher/commit/9c22fb804099c4ae0f4a83c81e1a7f5d390d217e))
+    * **deps:** update golang:1.25 docker digest to 1c91b4f ([#11](https://github.com/kubehippie/external-dns-watcher/issues/11)) ([a8ce24e](https://github.com/kubehippie/external-dns-watcher/commit/a8ce24e9d0f769580bc80cc849578d885bd4c571))
+    * **patch:** update module sigs.k8s.io/controller-runtime to v0.22.2 ([#15](https://github.com/kubehippie/external-dns-watcher/issues/15)) ([cbf9b6b](https://github.com/kubehippie/external-dns-watcher/commit/cbf9b6b92208250360bd957b4f4e3e51e8c40ee4))
+    * **patch:** update module sigs.k8s.io/controller-runtime to v0.22.3 ([#16](https://github.com/kubehippie/external-dns-watcher/issues/16)) ([0078df2](https://github.com/kubehippie/external-dns-watcher/commit/0078df2233f46236063a88bee4a138e06db8f917))
 
 ...

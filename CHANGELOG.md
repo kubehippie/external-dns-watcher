@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.4](https://github.com/kubehippie/external-dns-watcher/compare/v1.0.3...v1.0.4) (2025-10-20)
+
+
+### Bugfixes
+
+* **deps:** update golang:1.25 docker digest to 6ea52a0 ([#22](https://github.com/kubehippie/external-dns-watcher/issues/22)) ([02666ee](https://github.com/kubehippie/external-dns-watcher/commit/02666ee8a73fa167c7798b9c4a5f072c0f88f015))
+* **deps:** update golang:1.25 docker digest to bccbee3 ([#20](https://github.com/kubehippie/external-dns-watcher/issues/20)) ([6b3a17b](https://github.com/kubehippie/external-dns-watcher/commit/6b3a17b1735b1e9449ea8b7cfaf7746e34f773d0))
+* **deps:** update golang:1.25 docker digest to c0bf2bc ([#19](https://github.com/kubehippie/external-dns-watcher/issues/19)) ([0a30f55](https://github.com/kubehippie/external-dns-watcher/commit/0a30f555908d17b71fe2ea75b04d24a06539a9be))
+
 ## [1.0.3](https://github.com/kubehippie/external-dns-watcher/compare/v1.0.2...v1.0.3) (2025-10-13)
 
 

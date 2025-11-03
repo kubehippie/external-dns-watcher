@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/kubehippie/external-dns-watcher/compare/v1.1.0...v1.1.1) (2025-11-03)
+
+
+### Bugfixes
+
+* **patch:** update module github.com/onsi/ginkgo/v2 to v2.27.2 ([#30](https://github.com/kubehippie/external-dns-watcher/issues/30)) ([29896e1](https://github.com/kubehippie/external-dns-watcher/commit/29896e19414ddc1e8ebbddbc362b37e2f933c57f))
+
 ## [1.1.0](https://github.com/kubehippie/external-dns-watcher/compare/v1.0.4...v1.1.0) (2025-10-27)
 
 

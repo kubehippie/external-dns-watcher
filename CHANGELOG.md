@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.2](https://github.com/kubehippie/external-dns-watcher/compare/v1.1.1...v1.1.2) (2025-11-10)
+
+
+### Bugfixes
+
+* **deps:** update golang:1.25 docker digest to 516827d ([#38](https://github.com/kubehippie/external-dns-watcher/issues/38)) ([7d69abe](https://github.com/kubehippie/external-dns-watcher/commit/7d69abedc7f6e294cf4492b067468533480fc86d))
+* **deps:** update golang:1.25 docker digest to 6ca9eb0 ([#40](https://github.com/kubehippie/external-dns-watcher/issues/40)) ([138c329](https://github.com/kubehippie/external-dns-watcher/commit/138c329ab3d4e2636118d2d98aa1a0dfcadf3e6a))
+* **deps:** update golang:1.25 docker digest to 6d4e5e7 ([#36](https://github.com/kubehippie/external-dns-watcher/issues/36)) ([78d3c38](https://github.com/kubehippie/external-dns-watcher/commit/78d3c38df01e18c1fa7406c46ca1d29eb3b4f086))
+* **deps:** update golang:1.25 docker digest to 7e3cbcd ([#33](https://github.com/kubehippie/external-dns-watcher/issues/33)) ([0483355](https://github.com/kubehippie/external-dns-watcher/commit/0483355bd0a1a3d7836ed8534186398f463f1438))
+* **deps:** update golang:1.25 docker digest to b2663ef ([#35](https://github.com/kubehippie/external-dns-watcher/issues/35)) ([fa7e81d](https://github.com/kubehippie/external-dns-watcher/commit/fa7e81da7e9eedc26f8000e13546eba2e0d6c74f))
+* **patch:** update module sigs.k8s.io/controller-runtime to v0.22.4 ([#32](https://github.com/kubehippie/external-dns-watcher/issues/32)) ([1de7a55](https://github.com/kubehippie/external-dns-watcher/commit/1de7a55d377f2ca7650dea32392b195c816344e0))
+
 ## [1.1.1](https://github.com/kubehippie/external-dns-watcher/compare/v1.1.0...v1.1.1) (2025-11-03)
 
 

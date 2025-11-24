@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/kubehippie/external-dns-watcher/compare/v1.1.3...v1.2.0) (2025-11-24)
+
+
+### Features
+
+* **minor:** update module sigs.k8s.io/external-dns to v0.20.0 ([#44](https://github.com/kubehippie/external-dns-watcher/issues/44)) ([3d09e83](https://github.com/kubehippie/external-dns-watcher/commit/3d09e83d6cd762b055ae17697e2a1fa3fdb25f41))
+
+
+### Bugfixes
+
+* **deps:** update golang:1.25 docker digest to 6981837 ([#52](https://github.com/kubehippie/external-dns-watcher/issues/52)) ([c046579](https://github.com/kubehippie/external-dns-watcher/commit/c046579751339babc6c0b97e987d98d9e959d7cd))
+* **deps:** update golang:1.25 docker digest to f60eaa8 ([#47](https://github.com/kubehippie/external-dns-watcher/issues/47)) ([971ddd1](https://github.com/kubehippie/external-dns-watcher/commit/971ddd1804e8cdca61496d481ebc9ada0ae14d5b))
+
 ## [1.1.3](https://github.com/kubehippie/external-dns-watcher/compare/v1.1.2...v1.1.3) (2025-11-17)
 
 

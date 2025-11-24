@@ -110,6 +110,35 @@
             }
         ],
         [
+            "semantic-release-replace-plugin",
+            {
+                "replacements": [
+                    {
+                        "files": [
+                            "config/manager/kustomization.yaml"
+                        ],
+                        "from": "newTag: .*",
+                        "to": "newTag: ${nextRelease.version}",
+                        "results": [
+                            {
+                                "file": "config/manager/kustomization.yaml",
+                                "hasChanged": true,
+                                "numMatches": 1,
+                                "numReplacements": 1
+                            }
+                        ],
+                        "countMatches": true
+                    }
+                ]
+            }
+        ],
+        [
+            "@semantic-release/github",
+            {
+                "assets": []
+            }
+        ],
+        [
             "semantic-release-helm3",
             {
                 "chartPath": "chart",

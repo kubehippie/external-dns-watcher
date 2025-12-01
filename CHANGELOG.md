@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/kubehippie/external-dns-watcher/compare/v1.2.0...v1.2.1) (2025-12-01)
+
+
+### Bugfixes
+
+* do not populate changelog for chart ([e92fde3](https://github.com/kubehippie/external-dns-watcher/commit/e92fde38bed402e83296d694f18ac8bf888d3f7e))
+
 ## [1.2.0](https://github.com/kubehippie/external-dns-watcher/compare/v1.1.3...v1.2.0) (2025-11-24)
 
 

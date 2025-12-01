@@ -133,12 +133,6 @@
             }
         ],
         [
-            "@semantic-release/github",
-            {
-                "assets": []
-            }
-        ],
-        [
             "semantic-release-helm3",
             {
                 "chartPath": "chart",

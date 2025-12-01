@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/kubehippie/external-dns-watcher/compare/v1.2.1...v1.2.2) (2025-12-01)
+
+
+### Bugfixes
+
+* avoid duplicated github releases within release process ([06d0332](https://github.com/kubehippie/external-dns-watcher/commit/06d0332a52d3558ba44a037068b58552253aa361))
+
 ## [1.2.1](https://github.com/kubehippie/external-dns-watcher/compare/v1.2.0...v1.2.1) (2025-12-01)
 
 

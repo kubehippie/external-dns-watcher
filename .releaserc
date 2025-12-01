@@ -147,7 +147,8 @@
                 "assets": [
                     "CHANGELOG.md",
                     ".github/RELEASE",
-                    "chart/Chart.yaml"
+                    "chart/Chart.yaml",
+                    "config/manager/kustomization.yaml"
                 ]
             }
         ],

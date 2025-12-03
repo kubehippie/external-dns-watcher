@@ -7,11 +7,12 @@ domain: external-dns.webhippie.de
 layout:
 - go.kubebuilder.io/v4
 - autoupdate.kubebuilder.io/v1-alpha
-- helm.kubebuilder.io/v1-alpha
 plugins:
   autoupdate.kubebuilder.io/v1-alpha: {}
   grafana.kubebuilder.io/v1-alpha: {}
-  helm.kubebuilder.io/v1-alpha: {}
+  helm.kubebuilder.io/v2-alpha:
+    manifests: dist/install.yaml
+    output: dist
 projectName: external-dns-watcher
 repo: github.com/kubehippie/external-dns-watcher
 version: "3"

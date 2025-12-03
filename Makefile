@@ -35,7 +35,7 @@ grafana: ## Generate the dashboards with kubebuilder.
 
 .PHONY: chart
 chart: ## Generate the chart with kubebuilder.
-	kubebuilder edit --plugins=helm/v1-alpha
+	kubebuilder edit --plugins=helm/v2-alpha
 
 .PHONY: fmt
 fmt: ## Run go fmt against code.

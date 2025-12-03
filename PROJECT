@@ -6,9 +6,7 @@ cliVersion: v4.9.0
 domain: external-dns.webhippie.de
 layout:
 - go.kubebuilder.io/v4
-- autoupdate.kubebuilder.io/v1-alpha
 plugins:
-  autoupdate.kubebuilder.io/v1-alpha: {}
   grafana.kubebuilder.io/v1-alpha: {}
   helm.kubebuilder.io/v2-alpha:
     manifests: dist/install.yaml

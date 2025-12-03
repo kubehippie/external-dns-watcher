@@ -13,7 +13,7 @@ permissions:
   models: read
 
 jobs:
-  auto-update:
+  autoupdate:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,6 +25,7 @@ jobs:
           private-key: ${{ secrets.TOKEN_EXCHANGE_KEY }}
           permission-contents: write
           permission-issues: write
+          permission-pull-requests: write
 
       - name: Checkout source
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
@@ -41,6 +42,8 @@ jobs:
         uses: actionhippie/setup-kubebuilder@ed3b6c44de55a5452226f09de1fcdbea1c83db3c # v1
 
       - name: Setup models
+        env:
+          GH_TOKEN: ${{ steps.token.outputs.token }}
         run: gh extension install github/gh-models --force
 
       - name: Configure Git

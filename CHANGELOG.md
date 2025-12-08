@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.3](https://github.com/kubehippie/external-dns-watcher/compare/v1.2.2...v1.2.3) (2025-12-08)
+
+
+### Bugfixes
+
+* **deps:** update gcr.io/distroless/static:nonroot docker digest to 2b7c93f ([#58](https://github.com/kubehippie/external-dns-watcher/issues/58)) ([470c1b3](https://github.com/kubehippie/external-dns-watcher/commit/470c1b3824675c468cd764d5df890c698381c567))
+* **deps:** update golang:1.25 docker digest to 20b91ed ([#57](https://github.com/kubehippie/external-dns-watcher/issues/57)) ([e0ca11f](https://github.com/kubehippie/external-dns-watcher/commit/e0ca11f37466684bdb5004ac0ebba3c4bab817e6))
+
 ## [1.2.2](https://github.com/kubehippie/external-dns-watcher/compare/v1.2.1...v1.2.2) (2025-12-01)
 
 

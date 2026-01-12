@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0](https://github.com/kubehippie/external-dns-watcher/compare/v1.3.1...v1.4.0) (2026-01-12)
+
+
+### Features
+
+* **minor:** update module github.com/onsi/gomega to v1.39.0 ([#75](https://github.com/kubehippie/external-dns-watcher/issues/75)) ([b275a26](https://github.com/kubehippie/external-dns-watcher/commit/b275a26b0acf91d38a8c2c9f0ffc7c783c2f6ea5))
+
+
+### Bugfixes
+
+* **deps:** update gcr.io/distroless/static:nonroot docker digest to cba10d7 ([#76](https://github.com/kubehippie/external-dns-watcher/issues/76)) ([b25cdbe](https://github.com/kubehippie/external-dns-watcher/commit/b25cdbeca1b79051f751431fa77275c48c9ddb88))
+* **patch:** update module github.com/onsi/ginkgo/v2 to v2.27.4 ([#74](https://github.com/kubehippie/external-dns-watcher/issues/74)) ([f1c0f28](https://github.com/kubehippie/external-dns-watcher/commit/f1c0f2850c169e4b7a8d67232c93e58b505d36a2))
+
 ## [1.3.1](https://github.com/kubehippie/external-dns-watcher/compare/v1.3.0...v1.3.1) (2026-01-05)
 
 

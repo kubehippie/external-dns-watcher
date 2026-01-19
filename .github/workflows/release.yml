@@ -16,25 +16,25 @@ jobs:
 
     steps:
       - name: Setup nodejs
-        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
+        uses: actions/setup-node@v6
         with:
           node-version: lts/*
 
       - name: Generate token
         id: token
-        uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2
+        uses: actions/create-github-app-token@v2
         with:
           app-id: ${{ secrets.TOKEN_EXCHANGE_APP }}
           private-key: ${{ secrets.TOKEN_EXCHANGE_KEY }}
           permission-contents: write
 
       - name: Checkout source
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+        uses: actions/checkout@v6
         with:
           token: ${{ steps.token.outputs.token }}
 
       - name: Setup helm
-        uses: azure/setup-helm@1a275c3b69536ee54be43f2070a358922e12c8d4 # v4
+        uses: azure/setup-helm@v4
 
       - name: Build deps
         working-directory: chart
@@ -65,7 +65,7 @@ jobs:
         run: git pull --autostash --rebase
 
       - name: Commit changes
-        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9
+        uses: EndBug/add-and-commit@v9
         with:
           author_name: GitHub Actions
           author_email: github@webhippie.de

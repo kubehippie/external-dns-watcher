@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.6.0](https://github.com/kubehippie/external-dns-watcher/compare/v1.5.0...v1.6.0) (2026-02-02)
+
+### Dependencies
+
+* **minor:** update module github.com/onsi/ginkgo/v2 to v2.28.1 ([#87](https://github.com/kubehippie/external-dns-watcher/issues/87)) ([bb60177](https://github.com/kubehippie/external-dns-watcher/commit/bb601770ff5f43f8d082190422df94794be995db))
+* **patch:** update module github.com/onsi/gomega to v1.39.1 ([#86](https://github.com/kubehippie/external-dns-watcher/issues/86)) ([f46b658](https://github.com/kubehippie/external-dns-watcher/commit/f46b658110a1ca3fe331807c9436bddc13f849bf))
+* **patch:** update module sigs.k8s.io/controller-runtime to v0.23.1 ([#85](https://github.com/kubehippie/external-dns-watcher/issues/85)) ([a34af8a](https://github.com/kubehippie/external-dns-watcher/commit/a34af8a83ed68c7a411b9f3bf1352f4b5ce77023))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([cde9639](https://github.com/kubehippie/external-dns-watcher/commit/cde9639fe4872d0883519adad514c555b879f964))
+
 ## [1.5.0](https://github.com/kubehippie/external-dns-watcher/compare/v1.4.1...v1.5.0) (2026-01-26)
 
 ### Bugfixes

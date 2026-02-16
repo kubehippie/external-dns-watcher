@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.7.0](https://github.com/kubehippie/external-dns-watcher/compare/v1.6.1...v1.7.0) (2026-02-16)
+
+### Bugfixes
+
+* **deps:** update gcr.io/distroless/static:nonroot docker digest to 01e550f ([#96](https://github.com/kubehippie/external-dns-watcher/issues/96)) ([95b6532](https://github.com/kubehippie/external-dns-watcher/commit/95b653213e2680c5f3061e113e41dfc8dc82d135))
+* **deps:** update golang:1.26 docker digest to c83e68f ([#94](https://github.com/kubehippie/external-dns-watcher/issues/94)) ([26d9245](https://github.com/kubehippie/external-dns-watcher/commit/26d9245af05cd1c3266d36fe47851abea4072d61))
+
+### Dependencies
+
+* **minor:** update golang docker tag to v1.26 ([#93](https://github.com/kubehippie/external-dns-watcher/issues/93)) ([2dec75a](https://github.com/kubehippie/external-dns-watcher/commit/2dec75a2660707c8295dad90367a872f4a98fd8a))
+* **patch:** update kubernetes packages to v0.35.1 ([#95](https://github.com/kubehippie/external-dns-watcher/issues/95)) ([3609e49](https://github.com/kubehippie/external-dns-watcher/commit/3609e49e54e07d703a74b05af4ecb182fa6050e6))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([e8d3855](https://github.com/kubehippie/external-dns-watcher/commit/e8d38550d7cd7c5bd17f887c75b05d770045f0e8))
+
 ## [1.6.1](https://github.com/kubehippie/external-dns-watcher/compare/v1.6.0...v1.6.1) (2026-02-09)
 
 ### Bugfixes

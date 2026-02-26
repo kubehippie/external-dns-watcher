@@ -53,7 +53,7 @@
                 go
                 helm-docs
                 kubebuilder
-                nixfmt-rfc-style
+                nixfmt
                 yamllint
               ];
             };

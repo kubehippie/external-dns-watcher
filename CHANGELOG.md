@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.7.1](https://github.com/kubehippie/external-dns-watcher/compare/v1.7.0...v1.7.1) (2026-03-02)
+
+### Bugfixes
+
+* **deps:** update gcr.io/distroless/static:nonroot docker digest to 0376b51 ([#100](https://github.com/kubehippie/external-dns-watcher/issues/100)) ([60e89d8](https://github.com/kubehippie/external-dns-watcher/commit/60e89d86eb1a74819a9f103ac31122ab0a8f8f0c))
+* **deps:** update gcr.io/distroless/static:nonroot docker digest to f512d81 ([#101](https://github.com/kubehippie/external-dns-watcher/issues/101)) ([47d4404](https://github.com/kubehippie/external-dns-watcher/commit/47d4404d2e71962882e8d7bc4e07482c52fc956c))
+* **deps:** update golang:1.26 docker digest to 9edf713 ([#99](https://github.com/kubehippie/external-dns-watcher/issues/99)) ([53df60a](https://github.com/kubehippie/external-dns-watcher/commit/53df60ad7c25ddd6257d30274946916fcf77a1a1))
+* **deps:** update golang:1.26 docker digest to a9c4aac ([#98](https://github.com/kubehippie/external-dns-watcher/issues/98)) ([890f6cc](https://github.com/kubehippie/external-dns-watcher/commit/890f6cc7d167e03ea846ee3d1f35607438d272bd))
+* **deps:** update golang:1.26 docker digest to b39810f ([#97](https://github.com/kubehippie/external-dns-watcher/issues/97)) ([950fcb6](https://github.com/kubehippie/external-dns-watcher/commit/950fcb629b6a8ec69f84c32478ce88aae546f928))
+
+### Dependencies
+
+* **patch:** update kubernetes packages to v0.35.2 ([#102](https://github.com/kubehippie/external-dns-watcher/issues/102)) ([817cc9f](https://github.com/kubehippie/external-dns-watcher/commit/817cc9f8cefbcbca9de793fbb3eec37696af2b1a))
+
+### Miscellaneous
+
+* add initial revive config ([54031aa](https://github.com/kubehippie/external-dns-watcher/commit/54031aa5d329c499f025d860e9834a4cb28f0876))
+* **deps:** bump go.opentelemetry.io/otel/sdk from 1.37.0 to 1.40.0 ([bcf355c](https://github.com/kubehippie/external-dns-watcher/commit/bcf355c8787d01e0d57bdab2a54867dbbe3463ad))
+* **flake:** updated lockfile [skip ci] ([e81e4ed](https://github.com/kubehippie/external-dns-watcher/commit/e81e4edcf7ecf9caf797af01ee66c7e03aa5799d))
+* **flake:** updated lockfile [skip ci] ([e8039c9](https://github.com/kubehippie/external-dns-watcher/commit/e8039c98528978915b1b30ceb0187de91f525232))
+* replace nixfmt package ([592d6ea](https://github.com/kubehippie/external-dns-watcher/commit/592d6ea3d1f60e0ebf913901b882078a7c02bad4))
+
 ## [1.7.0](https://github.com/kubehippie/external-dns-watcher/compare/v1.6.1...v1.7.0) (2026-02-16)
 
 ### Bugfixes

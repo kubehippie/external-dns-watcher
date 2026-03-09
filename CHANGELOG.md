@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.7.2](https://github.com/kubehippie/external-dns-watcher/compare/v1.7.1...v1.7.2) (2026-03-09)
+
+### Bugfixes
+
+* **deps:** update golang:1.26 docker digest to e2ddb15 ([#111](https://github.com/kubehippie/external-dns-watcher/issues/111)) ([71760d1](https://github.com/kubehippie/external-dns-watcher/commit/71760d1031ef669a6997db51585e1df9c423883a))
+* **deps:** update golang:1.26 docker digest to fb612b7 ([#104](https://github.com/kubehippie/external-dns-watcher/issues/104)) ([d99320f](https://github.com/kubehippie/external-dns-watcher/commit/d99320f30f6044eba159a1faccc677f755309a83))
+
+### Dependencies
+
+* **patch:** update module sigs.k8s.io/controller-runtime to v0.23.3 ([#107](https://github.com/kubehippie/external-dns-watcher/issues/107)) ([2caf176](https://github.com/kubehippie/external-dns-watcher/commit/2caf176a6196630d4b7c8a36c01b69eff0eb9399))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([e8f1ce4](https://github.com/kubehippie/external-dns-watcher/commit/e8f1ce4213c9284d5bf1dbda9ea3384f9c0eea41))
+
 ## [1.7.1](https://github.com/kubehippie/external-dns-watcher/compare/v1.7.0...v1.7.1) (2026-03-02)
 
 ### Bugfixes

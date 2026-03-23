@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.7.4](https://github.com/kubehippie/external-dns-watcher/compare/v1.7.3...v1.7.4) (2026-03-23)
+
+### Bugfixes
+
+* **deps:** update golang:1.26 docker digest to 318ba17 ([#119](https://github.com/kubehippie/external-dns-watcher/issues/119)) ([ede8237](https://github.com/kubehippie/external-dns-watcher/commit/ede82378293e65beebe7f369edb048290aab717e))
+* **deps:** update golang:1.26 docker digest to 595c784 ([#124](https://github.com/kubehippie/external-dns-watcher/issues/124)) ([4aae6b3](https://github.com/kubehippie/external-dns-watcher/commit/4aae6b3c1f4294343ccb6b3f8a2f5fe22e90fd66))
+* **deps:** update golang:1.26 docker digest to c42e4d7 ([#121](https://github.com/kubehippie/external-dns-watcher/issues/121)) ([3802264](https://github.com/kubehippie/external-dns-watcher/commit/3802264cf2bc8a22770262a7339d48de4df0fc9a))
+* **deps:** update golang:1.26 docker digest to dd25c49 ([#120](https://github.com/kubehippie/external-dns-watcher/issues/120)) ([ad93d45](https://github.com/kubehippie/external-dns-watcher/commit/ad93d45a2691cb49f2b1ef319f55b6a5462937c8))
+
+### Dependencies
+
+* **patch:** update kubernetes monorepo to v0.35.3 ([#123](https://github.com/kubehippie/external-dns-watcher/issues/123)) ([3f0abf7](https://github.com/kubehippie/external-dns-watcher/commit/3f0abf7204c087bd159f022570aa27cdb9af09ec))
+
+### Miscellaneous
+
+* **deps:** bump google.golang.org/grpc from 1.76.0 to 1.79.3 ([c164bd0](https://github.com/kubehippie/external-dns-watcher/commit/c164bd010096d40c74e6e8b59c5edae1d6955642))
+* **flake:** updated lockfile [skip ci] ([d27e3cb](https://github.com/kubehippie/external-dns-watcher/commit/d27e3cb08fb79e9d9a3386c13e44f1943450d72c))
+
 ## [1.7.3](https://github.com/kubehippie/external-dns-watcher/compare/v1.7.2...v1.7.3) (2026-03-16)
 
 ### Bugfixes

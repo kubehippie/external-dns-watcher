@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.8.0](https://github.com/kubehippie/external-dns-watcher/compare/v1.7.4...v1.8.0) (2026-04-13)
+
+### Bugfixes
+
+* **deps:** update golang:1.26 docker digest to 42ebbf7 ([#129](https://github.com/kubehippie/external-dns-watcher/issues/129)) ([7d77100](https://github.com/kubehippie/external-dns-watcher/commit/7d77100074648923731a414ce9ef2b8ada66ded5))
+* **deps:** update golang:1.26 docker digest to 5e69504 ([#130](https://github.com/kubehippie/external-dns-watcher/issues/130)) ([3cd845f](https://github.com/kubehippie/external-dns-watcher/commit/3cd845f7ab1aff6548c7555d5b25164110c5952a))
+* **deps:** update golang:1.26 docker digest to cd78d88 ([#131](https://github.com/kubehippie/external-dns-watcher/issues/131)) ([f2c2f12](https://github.com/kubehippie/external-dns-watcher/commit/f2c2f1283bc33ac3dc4ce962638ca047e572bb96))
+* **deps:** update golang:1.26 docker digest to ec4debb ([#132](https://github.com/kubehippie/external-dns-watcher/issues/132)) ([744baf8](https://github.com/kubehippie/external-dns-watcher/commit/744baf867fbeb629b3bffa069369ce7d627e446c))
+* **deps:** update golang:1.26 docker digest to fcdb3e4 ([#135](https://github.com/kubehippie/external-dns-watcher/issues/135)) ([7728775](https://github.com/kubehippie/external-dns-watcher/commit/77287758b4395da6ea1fefbd3e655bfec6f45810))
+
+### Dependencies
+
+* **minor:** update module sigs.k8s.io/external-dns to v0.21.0 ([#128](https://github.com/kubehippie/external-dns-watcher/issues/128)) ([1f0940c](https://github.com/kubehippie/external-dns-watcher/commit/1f0940c7940066f70497426966cfd9cf1e72a413))
+
+### Miscellaneous
+
+* **deps:** bump go.opentelemetry.io/otel/sdk from 1.40.0 to 1.43.0 ([27513c0](https://github.com/kubehippie/external-dns-watcher/commit/27513c0bb8e0cdbb7fce272a6394b6a122164fac))
+* **flake:** updated lockfile [skip ci] ([3347850](https://github.com/kubehippie/external-dns-watcher/commit/3347850e56d4a4c3d1eb2c4be5f7bea782bd642e))
+* **flake:** updated lockfile [skip ci] ([033dd9c](https://github.com/kubehippie/external-dns-watcher/commit/033dd9cbbf876afccf7cd9e3bed052f71c858250))
+* **flake:** updated lockfile [skip ci] ([712b599](https://github.com/kubehippie/external-dns-watcher/commit/712b599688f7c43df1fba5bd1f41f8ea554c7267))
+
 ## [1.7.4](https://github.com/kubehippie/external-dns-watcher/compare/v1.7.3...v1.7.4) (2026-03-23)
 
 ### Bugfixes

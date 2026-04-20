@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.8.1](https://github.com/kubehippie/external-dns-watcher/compare/v1.8.0...v1.8.1) (2026-04-20)
+
+### Bugfixes
+
+* **deps:** update golang:1.26 docker digest to 5f3787b ([#136](https://github.com/kubehippie/external-dns-watcher/issues/136)) ([127e88c](https://github.com/kubehippie/external-dns-watcher/commit/127e88ce340ea1fd4a5ceb67ab82b83551ebfe20))
+
+### Dependencies
+
+* **patch:** update kubernetes monorepo to v0.35.4 ([#137](https://github.com/kubehippie/external-dns-watcher/issues/137)) ([4e53797](https://github.com/kubehippie/external-dns-watcher/commit/4e537979fb873c4c8e68b3cd7449eef06d950e40))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([e88800d](https://github.com/kubehippie/external-dns-watcher/commit/e88800d6258e826513e7d4ac14b8d6720fedd979))
+
 ## [1.8.0](https://github.com/kubehippie/external-dns-watcher/compare/v1.7.4...v1.8.0) (2026-04-13)
 
 ### Bugfixes

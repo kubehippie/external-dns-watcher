@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.9.0](https://github.com/kubehippie/external-dns-watcher/compare/v1.8.2...v1.9.0) (2026-05-04)
+
+### Dependencies
+
+* **minor:** update module github.com/onsi/gomega to v1.40.0 ([#144](https://github.com/kubehippie/external-dns-watcher/issues/144)) ([58ddd73](https://github.com/kubehippie/external-dns-watcher/commit/58ddd73fbcd1ceff4f2edd29047251cab45f650e))
+* **minor:** update module k8s.io/apimachinery to v0.36.0 ([#140](https://github.com/kubehippie/external-dns-watcher/issues/140)) ([0fb8acf](https://github.com/kubehippie/external-dns-watcher/commit/0fb8acfb927643e0d23f55ad351305f81f434c56))
+* **minor:** update module sigs.k8s.io/controller-runtime to v0.24.0 ([#145](https://github.com/kubehippie/external-dns-watcher/issues/145)) ([1ea5980](https://github.com/kubehippie/external-dns-watcher/commit/1ea598077bd59229f1583fec2e73d7542225df5a))
+* **patch:** update module github.com/onsi/ginkgo/v2 to v2.28.3 ([#143](https://github.com/kubehippie/external-dns-watcher/issues/143)) ([13218eb](https://github.com/kubehippie/external-dns-watcher/commit/13218eb679cda3f2a041c7c7936028f793ccdf6e))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([66c78b1](https://github.com/kubehippie/external-dns-watcher/commit/66c78b1e98aad47444324168d6bf2b47bb95a1f4))
+
 ## [1.8.2](https://github.com/kubehippie/external-dns-watcher/compare/v1.8.1...v1.8.2) (2026-04-27)
 
 ### Bugfixes

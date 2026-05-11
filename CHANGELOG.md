@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.9.1](https://github.com/kubehippie/external-dns-watcher/compare/v1.9.0...v1.9.1) (2026-05-11)
+
+### Bugfixes
+
+* **deps:** update golang:1.26 docker digest to 13605db ([#153](https://github.com/kubehippie/external-dns-watcher/issues/153)) ([d41f46f](https://github.com/kubehippie/external-dns-watcher/commit/d41f46f933f570ef4371fc07dd1c19ce07bcaff1))
+* **deps:** update golang:1.26 docker digest to 257c1f6 ([#154](https://github.com/kubehippie/external-dns-watcher/issues/154)) ([f157e59](https://github.com/kubehippie/external-dns-watcher/commit/f157e59b8f315e50ea3ee0715190e10fde1a220a))
+* **deps:** update golang:1.26 docker digest to 2981696 ([#155](https://github.com/kubehippie/external-dns-watcher/issues/155)) ([d6db3bb](https://github.com/kubehippie/external-dns-watcher/commit/d6db3bb37ae10987f3900aab5152192d7beea9c8))
+* **deps:** update golang:1.26 docker digest to 4039008 ([#151](https://github.com/kubehippie/external-dns-watcher/issues/151)) ([92f5b27](https://github.com/kubehippie/external-dns-watcher/commit/92f5b27c8668674c80e685948ff86a1834fed789))
+* **deps:** update golang:1.26 docker digest to efaccb5 ([#152](https://github.com/kubehippie/external-dns-watcher/issues/152)) ([9cb034b](https://github.com/kubehippie/external-dns-watcher/commit/9cb034b37cfd36e39e4baa3b6b893a989a0bbeff))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([71194e0](https://github.com/kubehippie/external-dns-watcher/commit/71194e0add6ee1554d32ad43e3eafca4f1486be7))
+
 ## [1.9.0](https://github.com/kubehippie/external-dns-watcher/compare/v1.8.2...v1.9.0) (2026-05-04)
 
 ### Dependencies

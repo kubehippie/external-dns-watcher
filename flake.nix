@@ -3,15 +3,19 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
+      url = "github:nixos/nixpkgs/nixos-25.11";
     };
 
-    devshell = {
-      url = "github:numtide/devshell";
+    devenv = {
+      url = "github:cachix/devenv";
     };
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
+    };
+
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
     };
   };
 
@@ -19,7 +23,8 @@
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
-        inputs.devshell.flakeModule
+        inputs.devenv.flakeModule
+        inputs.git-hooks.flakeModule
       ];
 
       systems = [
@@ -39,23 +44,52 @@
           ...
         }:
         {
-          devshells = {
-            default = {
-              env = [
-                {
-                  name = "CGO_ENABLED";
-                  value = "0";
-                }
-              ];
+          imports = [
+            {
+              _module.args.pkgs = import inputs.nixpkgs {
+                inherit system;
+                config.allowUnfree = true;
+              };
+            }
+          ];
 
-              packages = with pkgs; [
-                gnumake
-                go
-                helm-docs
-                kubebuilder
-                nixfmt
-                yamllint
-              ];
+          devenv = {
+            shells = {
+              default = {
+                git-hooks = {
+                  hooks = {
+                    nixfmt = {
+                      enable = true;
+                    };
+
+                    gofmt = {
+                      enable = true;
+                    };
+                  };
+                };
+
+                languages = {
+                  go = {
+                    enable = true;
+                    package = pkgs.go_1_26;
+                  };
+                };
+
+                packages = with pkgs; [
+                  bash
+                  gnumake
+                  helm-docs
+                  kubebuilder
+                  kubernetes-helm
+                  nixfmt
+                  tilt
+                  yamllint
+                ];
+
+                env = {
+                  CGO_ENABLED = "0";
+                };
+              };
             };
           };
         };

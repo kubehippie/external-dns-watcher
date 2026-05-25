@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.0.0](https://github.com/kubehippie/external-dns-watcher/compare/v1.10.0...v2.0.0) (2026-05-25)
+
+### Bugfixes
+
+* **deps:** update golang:1.26 docker digest to 6df14f4 ([#166](https://github.com/kubehippie/external-dns-watcher/issues/166)) ([38eb88f](https://github.com/kubehippie/external-dns-watcher/commit/38eb88f1ab453f64531a8ed4364fc3c69ac71b57))
+* **deps:** update golang:1.26 docker digest to 8530a4f ([#165](https://github.com/kubehippie/external-dns-watcher/issues/165)) ([f65f3d5](https://github.com/kubehippie/external-dns-watcher/commit/f65f3d5e4cbb2e020b9e029fc44cead6cf12873d))
+* **deps:** update golang:1.26 docker digest to cc9a5d7 ([#164](https://github.com/kubehippie/external-dns-watcher/issues/164)) ([e6cebf3](https://github.com/kubehippie/external-dns-watcher/commit/e6cebf37ba9e61c16eabfdee2851248246a89d74))
+
+### Dependencies
+
+* **major:** update ghcr.io/devcontainers/features/docker-in-docker docker tag to v3 ([#163](https://github.com/kubehippie/external-dns-watcher/issues/163)) ([85fa86b](https://github.com/kubehippie/external-dns-watcher/commit/85fa86be3e18c54ae449a315eb1619bbb95e24b9))
+
+### Miscellaneous
+
+* add dockerfile and config for tilt ([67ff8ac](https://github.com/kubehippie/external-dns-watcher/commit/67ff8ac56c5d46f48cbd2cf60dc274fd1e086acb))
+* **flake:** updated lockfile [skip ci] ([b2bbfce](https://github.com/kubehippie/external-dns-watcher/commit/b2bbfce8b8a1b685625feb4cb583e56153d6d397))
+* resolve devenv issues for makefile ([46c0d63](https://github.com/kubehippie/external-dns-watcher/commit/46c0d63a4c841e7d838f734186d8b047792c334f))
+* use devenv for flake config ([a1ca03e](https://github.com/kubehippie/external-dns-watcher/commit/a1ca03e953fb65a725d7ad0257cbbbcfd25318a6))
+
 ## [1.10.0](https://github.com/kubehippie/external-dns-watcher/compare/v1.9.1...v1.10.0) (2026-05-18)
 
 ### Bugfixes

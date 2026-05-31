@@ -13,6 +13,7 @@ name: general
 
 permissions:
   contents: read
+  code-quality: write
 
 jobs:
   lint:
@@ -30,7 +31,8 @@ jobs:
       - name: Run linter
         uses: golangci/golangci-lint-action@v9
         with:
-          version: v2.13.2
+          version: v2.12.2
+          install-mode: goinstall
 
   chart:
     runs-on: ubuntu-latest
@@ -96,25 +98,47 @@ jobs:
       - name: Run tests
         run: make test
 
-  # e2e:
-  #   runs-on: ubuntu-latest
+      - name: Upload coverage
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+        uses: actions/upload-code-coverage@v1
+        with:
+          file: cover.xml
+          language: Go
+          label: coverage/go
 
-  #   steps:
-  #     - name: Checkout source
-  #       uses: actions/checkout@v4
+  e2e:
+    runs-on: ubuntu-latest
 
-  #     - name: Setup golang
-  #       uses: actions/setup-go@v5
-  #       with:
-  #         go-version-file: go.mod
+    needs:
+      - lint
+      - chart
+      - tests
 
-  #     - name: Install tools
-  #       uses: alexellis/arkade-get@master
-  #       with:
-  #         kubectl: latest
-  #         kind: latest
+    strategy:
+      fail-fast: false
+      matrix:
+        externaldns:
+          - "0.21.0"
 
-  #     - name: Run tests
-  #       run: make test-e2e
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v6
+
+      - name: Setup golang
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+
+      - name: Install tools
+        uses: alexellis/arkade-get@master
+        with:
+          kubectl: latest
+          kind: latest
+          helm: latest
+
+      - name: Run tests
+        run: make test-e2e
+        env:
+          EXTERNAL_DNS_VERSION: ${{ matrix.externaldns }}
 
 ...

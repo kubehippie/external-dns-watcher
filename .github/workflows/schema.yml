@@ -1,0 +1,47 @@
+---
+# yaml-language-server: $schema=https://www.schemastore.org/github-workflow.json
+name: schema
+
+"on":
+  workflow_dispatch:
+  schedule:
+    - cron: "0 7 * * 1"
+
+permissions:
+  contents: write
+
+jobs:
+  schema:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate token
+        id: token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.TOKEN_EXCHANGE_APP }}
+          private-key: ${{ secrets.TOKEN_EXCHANGE_KEY }}
+          permission-contents: write
+
+      - name: Checkout source
+        uses: actions/checkout@v6
+        with:
+          token: ${{ steps.token.outputs.token }}
+
+      - name: Update schema
+        run: make schema
+
+      - name: Source rebase
+        run: git pull --autostash --rebase
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: GitHub Actions
+          author_email: github@webhippie.de
+          add: flake.lock
+          message: "chore(schema): updated schema [skip ci]"
+          push: true
+          commit: --signoff
+
+...

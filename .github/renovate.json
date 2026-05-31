@@ -3,6 +3,42 @@
   "extends": [
     "github>kubehippie/.github//renovate/preset"
   ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/(^|/)Makefile$/"
+      ],
+      "matchStrings": [
+        "KUSTOMIZE_VERSION \\?= (?<currentValue>v[\\d.]+)"
+      ],
+      "depNameTemplate": "kubernetes-sigs/kustomize",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^kustomize/(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/(^|/)Makefile$/"
+      ],
+      "matchStrings": [
+        "CONTROLLER_TOOLS_VERSION \\?= (?<currentValue>v[\\d.]+)"
+      ],
+      "depNameTemplate": "kubernetes-sigs/controller-tools",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/(^|/)Makefile$/"
+      ],
+      "matchStrings": [
+        "GOLANGCI_LINT_VERSION \\?= (?<currentValue>v[\\d.]+)"
+      ],
+      "depNameTemplate": "golangci/golangci-lint",
+      "datasourceTemplate": "github-releases"
+    }
+  ],
   "packageRules": [
     {
       "description": "Disable digest pinning",

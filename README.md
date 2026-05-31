@@ -15,7 +15,7 @@ Generally you should install this project via [Helm][helm], the other options
 are not covered by this document as the chart deployment is the preferred way:
 
 ```sh
-cat << EOF > values.yaml
+cat << EOF | helm install external-dns-watcher oci://ghcr.io/kubehippie/charts/external-dns-watcher --values -
 fullnameOverride: external-dns-watcher
 
 rbac:
@@ -41,8 +41,6 @@ config:
         - path: "$.status.controlPlaneLoadBalancer.ipv6"
           type: AAAA
 EOF
-
-helm install external-dns-watcher oci://ghcr.io/kubehippie/charts/external-dns-watcher --values values.yaml
 ```
 
 If you want to watch different kinds of resources you got to define the watch
@@ -53,7 +51,7 @@ the value for the DNS records.
 ## Development
 
 If you are not familiar with [Nix][nix] it is up to you to have a working
-environment for Go (>= 1.24.0) as the setup won't be covered within this guide.
+environment for Go (>= 1.26.3) as the setup won't be covered within this guide.
 Please follow the official install instructions for [Go][golang] and. Beside
 that we are using `make` to define all commands to build this project.
 

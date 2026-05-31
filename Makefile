@@ -46,8 +46,8 @@ vet: ## Run go vet against code.
 	go vet ./...
 
 .PHONY: test
-test: manifests generate fmt vet setup-envtest ## Run tests.
-	KUBEBUILDER_ASSETS="$(shell $(ENVTEST) use $(ENVTEST_K8S_VERSION) --bin-dir $(LOCALBIN) -p path)" go test $$(go list ./... | grep -v /e2e) -coverprofile cover.out
+test: manifests generate fmt vet setup-envtest gocover-cobertura ## Run tests.
+	KUBEBUILDER_ASSETS="$(shell $(ENVTEST) use $(ENVTEST_K8S_VERSION) --bin-dir $(LOCALBIN) -p path)" go test $$(go list ./... | grep -v /e2e) -coverprofile cover.out -covermode count && $(GOCOVER_COBERTURA) < cover.out > cover.xml
 
 KIND_CLUSTER ?= external-dns-watcher-test-e2e
 
@@ -121,6 +121,20 @@ build-installer: manifests generate kustomize ## Generate a consolidated YAML wi
 	cd config/manager && $(KUSTOMIZE) edit set image controller=${IMG}
 	$(KUSTOMIZE) build config/default > dist/install.yaml
 
+.PHONY: schema
+schema: manifests ## Generate JSON Schema files from CRDs for editor integration (yaml-language-server).
+	rm -rf config/schema && mkdir -p config/schema
+	@for crd in config/crd/bases/*.yaml; do \
+		group=$$(yq '.spec.group' "$$crd"); \
+		version=$$(yq '.spec.versions[0].name' "$$crd"); \
+		singular=$$(yq '.spec.names.singular' "$$crd"); \
+		filename="$${group}_$${singular}_$${version}.json"; \
+		echo "Generating config/schema/$$filename"; \
+		yq -o=json \
+			'{"$$schema": "http://json-schema.org/draft-07/schema#", "title": .spec.names.kind} + .spec.versions[0].schema.openAPIV3Schema' \
+			"$$crd" > "config/schema/$$filename"; \
+	done
+
 ##@ Deployment
 
 ifndef ignore-not-found
@@ -160,6 +174,7 @@ KUSTOMIZE ?= $(LOCALBIN)/kustomize
 CONTROLLER_GEN ?= $(LOCALBIN)/controller-gen
 ENVTEST ?= $(LOCALBIN)/setup-envtest
 GOLANGCI_LINT = $(LOCALBIN)/golangci-lint
+GOCOVER_COBERTURA = $(LOCALBIN)/gocover-cobertura
 
 ## Tool Versions
 KUSTOMIZE_VERSION ?= v5.7.1
@@ -167,6 +182,7 @@ CONTROLLER_TOOLS_VERSION ?= v0.19.0
 ENVTEST_VERSION ?= $(shell go list -m -f "{{ .Version }}" sigs.k8s.io/controller-runtime | awk -F'[v.]' '{printf "release-%d.%d", $$2, $$3}')
 ENVTEST_K8S_VERSION ?= $(shell go list -m -f "{{ .Version }}" k8s.io/api | awk -F'[v.]' '{printf "1.%d", $$3}')
 GOLANGCI_LINT_VERSION ?= v2.4.0
+GOCOVER_COBERTURA_VERSION ?= latest
 
 .PHONY: kustomize
 kustomize: $(KUSTOMIZE) ## Download kustomize locally if necessary.
@@ -195,6 +211,11 @@ $(ENVTEST): $(LOCALBIN)
 golangci-lint: $(GOLANGCI_LINT) ## Download golangci-lint locally if necessary.
 $(GOLANGCI_LINT): $(LOCALBIN)
 	$(call go-install-tool,$(GOLANGCI_LINT),github.com/golangci/golangci-lint/v2/cmd/golangci-lint,$(GOLANGCI_LINT_VERSION))
+
+.PHONY: gocover-cobertura
+gocover-cobertura: $(GOCOVER_COBERTURA) ## Download gocover-cobertura locally if necessary.
+$(GOCOVER_COBERTURA): $(LOCALBIN)
+	$(call go-install-tool,$(GOCOVER_COBERTURA),github.com/t-yuki/gocover-cobertura,$(GOCOVER_COBERTURA_VERSION))
 
 define go-install-tool
 @[ -f "$(1)-$(3)" ] && [ "$$(readlink -- "$(1)" 2>/dev/null)" = "$(1)-$(3)" ] || { \

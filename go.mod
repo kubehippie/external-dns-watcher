@@ -4,7 +4,7 @@ go 1.26.1
 
 require (
 	github.com/PaesslerAG/jsonpath v0.1.1
-	github.com/onsi/ginkgo/v2 v2.31.0
+	github.com/onsi/ginkgo/v2 v2.32.0
 	github.com/onsi/gomega v1.42.0
 	gopkg.in/yaml.v3 v3.0.1
 	k8s.io/apimachinery v0.36.2

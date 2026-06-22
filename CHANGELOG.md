@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.1.1](https://github.com/kubehippie/external-dns-watcher/compare/v2.1.0...v2.1.1) (2026-06-22)
+
+### Bugfixes
+
+* **deps:** update docker digests ([#174](https://github.com/kubehippie/external-dns-watcher/issues/174)) ([01742bd](https://github.com/kubehippie/external-dns-watcher/commit/01742bd26e205752c949228621b4e56f3aa9e69d))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([2827b99](https://github.com/kubehippie/external-dns-watcher/commit/2827b9925a07dba3ef2330416b7a58e89661af57))
+
 ## [2.1.0](https://github.com/kubehippie/external-dns-watcher/compare/v2.0.0...v2.1.0) (2026-06-15)
 
 ### Bugfixes

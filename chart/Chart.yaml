@@ -3,8 +3,8 @@ apiVersion: v2
 type: application
 name: external-dns-watcher
 description: Watch any resource and generate External DNS records
-version: 3.0.1
-appVersion: 3.0.1
+version: 3.0.2
+appVersion: 3.0.2
 home: https://github.com/kubehippie/external-dns-watcher
 icon: https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/hetzner.svg
 keywords:

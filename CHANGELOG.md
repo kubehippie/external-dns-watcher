@@ -1,5 +1,7 @@
 # Changelog
 
+## [3.0.6](https://github.com/kubehippie/external-dns-watcher/compare/v3.0.5...v3.0.6) (2026-08-17)
+
 ## [3.0.5](https://github.com/kubehippie/external-dns-watcher/compare/v3.0.4...v3.0.5) (2026-08-10)
 
 ## [3.0.4](https://github.com/kubehippie/external-dns-watcher/compare/v3.0.3...v3.0.4) (2026-07-27)

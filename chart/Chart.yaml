@@ -6,7 +6,7 @@ description: Watch any resource and generate External DNS records
 version: 3.0.6
 appVersion: 3.0.6
 home: https://github.com/kubehippie/external-dns-watcher
-icon: https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/hetzner.svg
+icon: https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/nextdns.svg
 keywords:
   - external-dns
   - watcher

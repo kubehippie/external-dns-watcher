@@ -6,7 +6,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "chart.labels" . | nindent 4 }}
-{{- with .Values.annotation }}
+{{- with .Values.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
 {{- end }}
@@ -25,7 +25,7 @@ metadata:
     {{- if .Values.crd.keep }}
     "helm.sh/resource-policy": keep
     {{- end }}
-{{- with .Values.annotation }}
+{{- with .Values.annotations }}
     {{- toYaml . | nindent 4 }}
 {{- end }}
 spec:
@@ -34,6 +34,32 @@ spec:
     - {{ include "chart.fullname" . }}.{{ .Release.Namespace }}.svc
     - {{ include "chart.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
     - {{ include "chart.fullname" . }}-metrics.{{ .Release.Namespace }}.svc
+  issuerRef:
+    kind: Issuer
+    name: {{ include "chart.fullname" . }}
+{{- end }}
+{{- if .Values.webhook.enable }}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "chart.fullname" . }}-webhook
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+  annotations:
+    {{- if .Values.crd.keep }}
+    "helm.sh/resource-policy": keep
+    {{- end }}
+{{- with .Values.annotations }}
+    {{- toYaml . | nindent 4 }}
+{{- end }}
+spec:
+  secretName: {{ include "chart.fullname" . }}-webhook
+  dnsNames:
+    - {{ include "chart.fullname" . }}.{{ .Release.Namespace }}.svc
+    - {{ include "chart.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
+    - {{ include "chart.fullname" . }}-webhook.{{ .Release.Namespace }}.svc
   issuerRef:
     kind: Issuer
     name: {{ include "chart.fullname" . }}

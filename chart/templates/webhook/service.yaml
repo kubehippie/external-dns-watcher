@@ -1,0 +1,19 @@
+{{- if .Values.webhook.enable }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "chart.fullname" . }}-webhook
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+    control-plane: controller-manager
+spec:
+  ports:
+    - port: 443
+      targetPort: {{ .Values.webhook.port }}
+      protocol: TCP
+      name: webhook
+  selector:
+    {{- include "chart.selectorLabels" . | nindent 4 }}
+    control-plane: controller-manager
+{{- end }}

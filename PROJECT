@@ -2,10 +2,11 @@
 # This file is used to track the info used to scaffold your project
 # and allow the plugins properly work.
 # More info: https://book.kubebuilder.io/reference/project-config.html
-cliVersion: v4.9.0
+cliVersion: 4.9.0
 domain: external-dns.webhippie.de
 layout:
 - go.kubebuilder.io/v4
+multigroup: true
 plugins:
   grafana.kubebuilder.io/v1-alpha: {}
   helm.kubebuilder.io/v2-alpha:
@@ -13,4 +14,17 @@ plugins:
     output: dist
 projectName: external-dns-watcher
 repo: github.com/kubehippie/external-dns-watcher
+resources:
+- api:
+    crdVersion: v1
+    namespaced: false
+  controller: true
+  domain: external-dns.webhippie.de
+  kind: DNSWatcher
+  path: github.com/kubehippie/external-dns-watcher/api/v1alpha1
+  version: v1alpha1
+  webhooks:
+    defaulting: true
+    validation: true
+    webhookVersion: v1
 version: "3"

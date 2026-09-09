@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package controllers
+package controller
 
 import (
 	"bytes"
@@ -175,6 +175,13 @@ func (r *EndpointReconciler) Reconcile(ctx context.Context, req ctrl.Request) (c
 }
 
 func (r *EndpointReconciler) SetupWithManager(mgr ctrl.Manager) error {
+	// Skip registering this controller entirely when no config-file watches are
+	// configured (e.g. CRD-only deployments), since a builder requires at least
+	// one For() type to be set up.
+	if len(r.WatchConfigs) == 0 {
+		return nil
+	}
+
 	builder := ctrl.NewControllerManagedBy(mgr)
 
 	for _, watch := range r.WatchConfigs {

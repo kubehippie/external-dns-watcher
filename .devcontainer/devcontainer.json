@@ -2,6 +2,10 @@
   "name": "Kubebuilder DevContainer",
   "image": "golang:1.27",
   "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "configureZshAsDefaultShell": true
+    },
+    "ghcr.io/devcontainers-extra/features/mise:1": {},
     "ghcr.io/devcontainers/features/docker-in-docker:4": {},
     "ghcr.io/devcontainers/features/git:1": {}
   },
@@ -14,8 +18,9 @@
         "terminal.integrated.shell.linux": "/bin/bash"
       },
       "extensions": [
-        "ms-kubernetes-tools.vscode-kubernetes-tools",
-        "ms-azuretools.vscode-docker"
+        "hverlin.mise-vscode",
+        "ms-azuretools.vscode-docker",
+        "ms-kubernetes-tools.vscode-kubernetes-tools"
       ]
     }
   },

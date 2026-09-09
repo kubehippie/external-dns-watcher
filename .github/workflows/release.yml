@@ -15,16 +15,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup nodejs
-        uses: actions/setup-node@v7.0.0
-        with:
-          node-version: lts/*
-
       - name: Generate token
         id: token
         uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ secrets.TOKEN_EXCHANGE_APP }}
+          client-id: ${{ secrets.TOKEN_EXCHANGE_APP }}
           private-key: ${{ secrets.TOKEN_EXCHANGE_KEY }}
           permission-contents: write
 
@@ -33,8 +28,8 @@ jobs:
         with:
           token: ${{ steps.token.outputs.token }}
 
-      - name: Setup helm
-        uses: azure/setup-helm@v5
+      - name: Install tools
+        uses: jdx/mise-action@v4
 
       - name: Build deps
         working-directory: chart
@@ -46,13 +41,13 @@ jobs:
       - name: Install releaser
         run: |
           npm install -g \
-            semantic-release@25.0.2 \
+            semantic-release \
             @semantic-release/changelog \
             @semantic-release/git \
             @semantic-release/github \
             semantic-release-replace-plugin \
             semantic-release-helm3 \
-            conventional-changelog-conventionalcommits
+            conventional-changelog-conventionalcommits@9
 
       - name: Run releaser
         env:

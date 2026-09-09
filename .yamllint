@@ -5,11 +5,14 @@ extends: default
 ignore: |
   .github/
   chart/templates/
+  config/certmanager/
+  config/crd/
   config/default/
   config/manager/
   config/network-policy/
   config/prometheus/
   config/rbac/
+  config/webhook/
   dist/
 
 rules:

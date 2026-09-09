@@ -1,6 +1,6 @@
 # external-dns-watcher
 
-[![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/kubehippie/external-dns-watcher) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/kubehippie)](https://artifacthub.io/packages/helm/kubehippie/external-dns-watcher)
+[![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/kubehippie/external-dns-watcher) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/external-dns-watcher)](https://artifacthub.io/packages/helm/external-dns-watcher/external-dns-watcher)
 
 This small controller can watch a configurable set of resources within a
 Kubernetes cluster and generate `DNSEndpoint` resources which are part of
@@ -50,29 +50,20 @@ the value for the DNS records.
 
 ## Development
 
-If you are not familiar with [Nix][nix] it is up to you to have a working
-environment for Go (>= 1.26.3) as the setup won't be covered within this guide.
-Please follow the official install instructions for [Go][golang] and. Beside
-that we are using `make` to define all commands to build this project.
+We are using [Mise][mise] to install all required tools with fixed versions to
+keep everything as far as possible compatible. If you don't want to use
+[Mise][mise] it is up to you to install the required tools like Go. Beside that
+we are using `make` to define all commands to build this project.
 
 ```console
 git clone https://github.com/kubehippie/external-dns-watcher.git
 cd external-dns-watcher
 
+mise trust
+mise install
+
 make build
 ./bin/manager -h
-```
-
-If you got [Nix][nix] and [Direnv][direnv] configured you can simply execute
-the following commands to get all dependencies including `make` and the required
-runtimes installed:
-
-```console
-cat << EOF > .envrc
-use flake . --impure
-EOF
-
-direnv allow
 ```
 
 To easily work on the operator we suggest to use [Tilt][tilt] for the local
@@ -115,7 +106,5 @@ Copyright (c) 2025 Thomas Boerger <thomas@webhippie.de>
 [external-dns]: https://kubernetes-sigs.github.io/external-dns/
 [cluster-api]: https://cluster-api.sigs.k8s.io/
 [helm]: https://helm.sh/
-[nix]: https://nixos.org/
-[golang]: http://golang.org/doc/install.html
-[direnv]: https://direnv.net/
+[mise]: https://mise.jdx.dev/getting-started.html
 [tilt]: https://tilt.dev/

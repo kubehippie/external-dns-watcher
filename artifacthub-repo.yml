@@ -1,4 +1,5 @@
 ---
+# yaml-language-server: $schema=https://www.schemastore.org/artifacthub-repo.json
 repositoryID: d0755b43-96fd-4a6c-8f33-f9f1595a952c
 owners:
   - name: tboerger

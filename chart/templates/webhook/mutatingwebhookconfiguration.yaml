@@ -1,0 +1,31 @@
+{{- if .Values.webhook.enable }}
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: {{ include "chart.fullname" . }}
+  annotations:
+    {{- if .Values.certmanager.enable }}
+    cert-manager.io/inject-ca-from: {{ .Release.Namespace }}/{{ include "chart.fullname" . }}-webhook
+    {{- end }}
+webhooks:
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      service:
+        name: {{ include "chart.fullname" . }}-webhook
+        namespace: {{ .Release.Namespace }}
+        path: /mutate-external-dns-webhippie-de-v1alpha1-dnswatcher
+    failurePolicy: Fail
+    name: mdnswatcher.kb.io
+    rules:
+      - apiGroups:
+          - external-dns.webhippie.de
+        apiVersions:
+          - v1alpha1
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - dnswatchers
+    sideEffects: None
+{{- end }}

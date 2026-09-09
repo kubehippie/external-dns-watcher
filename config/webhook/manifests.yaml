@@ -1,0 +1,52 @@
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: mutating-webhook-configuration
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: webhook-service
+      namespace: system
+      path: /mutate-external-dns-webhippie-de-v1alpha1-dnswatcher
+  failurePolicy: Fail
+  name: mdnswatcher.kb.io
+  rules:
+  - apiGroups:
+    - external-dns.webhippie.de
+    apiVersions:
+    - v1alpha1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - dnswatchers
+  sideEffects: None
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: validating-webhook-configuration
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: webhook-service
+      namespace: system
+      path: /validate-external-dns-webhippie-de-v1alpha1-dnswatcher
+  failurePolicy: Fail
+  name: vdnswatcher.kb.io
+  rules:
+  - apiGroups:
+    - external-dns.webhippie.de
+    apiVersions:
+    - v1alpha1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - dnswatchers
+  sideEffects: None

@@ -5,6 +5,32 @@ metadata:
   name: manager-role
 rules:
 - apiGroups:
+  - external-dns.webhippie.de
+  resources:
+  - dnswatchers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - external-dns.webhippie.de
+  resources:
+  - dnswatchers/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - external-dns.webhippie.de
+  resources:
+  - dnswatchers/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
   - externaldns.k8s.io
   resources:
   - dnsendpoints

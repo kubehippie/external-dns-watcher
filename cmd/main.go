@@ -21,10 +21,13 @@ import (
 	"flag"
 	"os"
 
-	"github.com/kubehippie/external-dns-watcher/controllers"
+	"github.com/kubehippie/external-dns-watcher/api/v1alpha1"
+	"github.com/kubehippie/external-dns-watcher/internal/controller"
+	webhookv1alpha1 "github.com/kubehippie/external-dns-watcher/internal/webhook/v1alpha1"
 	"github.com/kubehippie/external-dns-watcher/pkg/config"
 	_ "k8s.io/client-go/plugin/pkg/client/auth"
 
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
@@ -46,6 +49,10 @@ var (
 func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 	utilruntime.Must(extdnsv1alpha1.AddToScheme(scheme))
+	// external-dns's AddToScheme doesn't register the common meta types (GetOptions,
+	// ListOptions, etc.) for its group-version, which breaks List/Get/Watch calls.
+	metav1.AddToGroupVersion(scheme, extdnsv1alpha1.GroupVersion)
+	utilruntime.Must(v1alpha1.AddToScheme(scheme))
 
 	// +kubebuilder:scaffold:scheme
 }
@@ -255,7 +262,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	reconciler := &controllers.EndpointReconciler{
+	reconciler := &controller.EndpointReconciler{
 		Client:       mgr.GetClient(),
 		Scheme:       mgr.GetScheme(),
 		WatchConfigs: cfg.Watches,
@@ -266,6 +273,19 @@ func main() {
 	}
 
 	// +kubebuilder:scaffold:builder
+
+	if err := (&controller.DNSWatcherReconciler{
+		Client: mgr.GetClient(),
+		Scheme: mgr.GetScheme(),
+	}).SetupWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to create DNSWatcherReconciler")
+		os.Exit(1)
+	}
+
+	if err := webhookv1alpha1.SetupDNSWatcherWebhookWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to set up DNSWatcher webhook")
+		os.Exit(1)
+	}
 
 	if err := mgr.AddHealthzCheck("healthz", healthz.Ping); err != nil {
 		setupLog.Error(err, "unable to set up health check")

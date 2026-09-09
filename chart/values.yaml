@@ -100,6 +100,13 @@ certmanager:
   # -- Enable Cert Manager integration
   enable: false
 
+webhook:
+  # -- Enable the creation of mutating and validating webhooks
+  enable: true
+
+  # -- Port for the webhook service
+  port: 9443
+
 networkPolicy:
   # -- Enable builtin network policies
   enable: false
@@ -121,6 +128,9 @@ labels: {}
 
 # -- Define additional labels for the pod
 podLabels: {}
+
+# -- List of environment variables for the pod
+env: []
 
 # -- Config mounted into the controller
 config:

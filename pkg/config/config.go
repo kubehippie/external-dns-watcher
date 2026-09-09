@@ -1,7 +1,6 @@
 package config
 
 import (
-	"fmt"
 	"os"
 
 	"gopkg.in/yaml.v3"
@@ -28,11 +27,17 @@ type Config struct {
 	Watches []WatchConfig `json:"watches" yaml:"watches"`
 }
 
-// Load handles the loading of the configuration file
+// Load handles the loading of the configuration file. A missing file is not
+// treated as an error, since watches can also be configured entirely
+// through the DNSWatcher custom resource instead of a config file.
 func Load(path string) (*Config, error) {
 	data, err := os.ReadFile(path)
 
 	if err != nil {
+		if os.IsNotExist(err) {
+			return &Config{}, nil
+		}
+
 		return nil, err
 	}
 
@@ -41,8 +46,6 @@ func Load(path string) (*Config, error) {
 	if err := yaml.Unmarshal(data, &cfg); err != nil {
 		return nil, err
 	}
-
-	fmt.Printf("%+v\n", cfg)
 
 	return &cfg, nil
 }

@@ -28,6 +28,7 @@ helm install external-dns-watcher oci://ghcr.io/kubehippie/charts/external-dns-w
 | config | object | `{"watches":[{"group":"infrastructure.cluster.x-k8s.io","kind":"HetznerCluster","paths":[{"path":"$.status.controlPlaneLoadBalancer.ipv4","type":"A"},{"path":"$.status.controlPlaneLoadBalancer.ipv6","type":"AAAA"}],"recordTemplate":"{{ .Name }}-control-plane.example.com","version":"v1beta1"}]}` | Config mounted into the controller |
 | crd.enable | bool | `true` | Install CRDs if we provide some |
 | crd.keep | bool | `true` | Enable to add a helm.sh/resource-policy annotation |
+| env | list | `[]` | List of environment variables for the pod |
 | fullnameOverride | string | `""` | Override the fullname |
 | image.imagePullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"ghcr.io/kubehippie/external-dns-watcher"` | Repository of the controller |
@@ -52,3 +53,5 @@ helm install external-dns-watcher oci://ghcr.io/kubehippie/charts/external-dns-w
 | serviceAccount.name | string | `nil` | Service account name |
 | serviceMonitor.enable | bool | `false` | Enable a service monitor |
 | updateStrategy | object | `{"type":"Recreate"}` | Update strategy for deployment |
+| webhook.enable | bool | `true` | Enable the creation of mutating and validating webhooks |
+| webhook.port | int | `9443` | Port for the webhook service |

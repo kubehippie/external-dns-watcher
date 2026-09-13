@@ -1,4 +1,6 @@
 ---
+policy: sync
+
 provider:
   name: inmemory
 

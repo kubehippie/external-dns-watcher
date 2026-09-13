@@ -13,7 +13,6 @@ name: general
 
 permissions:
   contents: read
-  code-quality: write
 
 jobs:
   lint:
@@ -85,13 +84,13 @@ jobs:
       - name: Run tests
         run: make test
 
-      - name: Upload coverage
-        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
-        uses: actions/upload-code-coverage@v1
-        with:
-          file: cover.xml
-          language: Go
-          label: coverage/go
+      # - name: Coverage report
+      #   if: github.ref == 'refs/heads/master'
+      #   uses: codacy/codacy-coverage-reporter-action@v1
+      #   with:
+      #     project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+      #     coverage-reports: coverage.out
+      #     force-coverage-parser: go
 
   e2e:
     runs-on: ubuntu-latest

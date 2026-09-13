@@ -10,8 +10,7 @@ Dockerfile.cross
 
 *.test
 
-cover.out
-cover.xml
+coverage.out
 
 go.work
 

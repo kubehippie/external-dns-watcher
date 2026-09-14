@@ -84,13 +84,13 @@ jobs:
       - name: Run tests
         run: make test
 
-      # - name: Coverage report
-      #   if: github.ref == 'refs/heads/master'
-      #   uses: codacy/codacy-coverage-reporter-action@v1
-      #   with:
-      #     project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-      #     coverage-reports: coverage.out
-      #     force-coverage-parser: go
+      - name: Coverage report
+        if: github.ref == 'refs/heads/master'
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: coverage.out
+          force-coverage-parser: go
 
   e2e:
     runs-on: ubuntu-latest

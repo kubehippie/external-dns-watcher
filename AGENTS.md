@@ -70,7 +70,7 @@ grafana/                   # Grafana dashboard definitions
 
 dist/                      # Generated install.yaml (kustomize build output)
 
-flake.nix                  # Nix dev shell definition
+mise.toml                  # mise-managed tool versions (Go, Helm, kubectl, ...)
 Makefile                   # All build, test, lint, and deploy targets
 ```
 
@@ -78,14 +78,16 @@ Makefile                   # All build, test, lint, and deploy targets
 
 ## Shell Environment
 
-This repository uses a **Nix flake** (`flake.nix`) for the dev shell. With
-[Direnv](https://direnv.net/) configured, the shell activates automatically.
-Without Nix, ensure Go >= 1.24.0 and `make` are available on your `PATH`.
+This repository uses [mise](https://mise.jdx.dev/) (`mise.toml`) to manage
+tool versions (Go, Helm, kubectl, kind, kubebuilder, etc.). With mise
+configured and its shell hook installed, tools activate automatically when
+entering the directory.
 
 To activate manually:
 
 ```bash
-nix develop
+mise install
+mise trust
 ```
 
 ---
@@ -141,6 +143,7 @@ All commands are defined in `Makefile`. Key targets:
 | `make lint-fix` | Run linter with auto-fix |
 | `make manifests` | Regenerate RBAC/CRD manifests via `controller-gen` |
 | `make generate` | Regenerate DeepCopy methods via `controller-gen` |
+| `make schema` | Regenerate JSON Schema files from CRDs for editor integration (yaml-language-server) |
 | `make fmt` | Run `go fmt ./...` |
 | `make vet` | Run `go vet ./...` |
 | `make docker-build` | Build the container image |
@@ -186,7 +189,7 @@ after the test run (`make cleanup-test-e2e`).
 | Release | `.github/workflows/release.yml` | Semantic release and changelog |
 | Helm docs | `.github/workflows/helmdocs.yml` | Regenerate chart documentation |
 | Automerge | `.github/workflows/automerge.yml` | Renovate/Dependabot automation |
-| Flake | `.github/workflows/flake.yml` | Scheduled Nix flake lock updates |
+| Schema | `.github/workflows/schema.yml` | Scheduled JSON Schema regeneration |
 
 ---
 
@@ -222,6 +225,9 @@ When adding a new watch rule, always add the corresponding RBAC entry.
 
 - Use pull requests for all changes.
 - Run `make fmt vet lint` before pushing.
-- After changing controller logic, regenerate manifests with `make manifests generate`.
+- After changing controller logic or any `_types.go` file, regenerate
+  manifests with `make manifests generate schema`. The `schema` step keeps
+  the editor JSON Schemas (`config/schema/`) in sync with the CRDs, since it
+  is not implied by `manifests`/`generate` alone.
 - Keep the Helm chart in sync with config schema changes.
 - For security issues, contact `thomas@webhippie.de`.

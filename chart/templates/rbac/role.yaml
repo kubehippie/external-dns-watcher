@@ -18,6 +18,32 @@ rules:
       - patch
       - update
       - watch
+  - apiGroups:
+      - external-dns.webhippie.de
+    resources:
+      - dnswatchers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - external-dns.webhippie.de
+    resources:
+      - dnswatchers/finalizers
+    verbs:
+      - update
+  - apiGroups:
+      - external-dns.webhippie.de
+    resources:
+      - dnswatchers/status
+    verbs:
+      - get
+      - patch
+      - update
   {{- if .Values.rbac.extraRules }}
   {{- toYaml .Values.rbac.extraRules | nindent 2 }}
   {{- end }}

@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.2.0](https://github.com/kubehippie/external-dns-watcher/compare/v3.1.0...v3.2.0) (2026-09-20)
+
+### Bugfixes
+
+* add missing role rules for crds ([cb58042](https://github.com/kubehippie/external-dns-watcher/commit/cb58042ed6ad1e4c898c177cc5ccd6bedd1f6837))
+* **deps:** update golang:1.27 docker digest to 1cfcdb1 ([#237](https://github.com/kubehippie/external-dns-watcher/issues/237)) ([ea11971](https://github.com/kubehippie/external-dns-watcher/commit/ea11971618da00e51ff4ae5224121efb7a2f5aef))
+* **deps:** update golang:1.27 docker digest to 3680233 ([#238](https://github.com/kubehippie/external-dns-watcher/issues/238)) ([bbfc2c2](https://github.com/kubehippie/external-dns-watcher/commit/bbfc2c26f39fc8dde318e42b8eb57719e3ee854c))
+
+### Dependencies
+
+* **minor:** update module github.com/onsi/ginkgo/v2 to v2.33.0 ([#233](https://github.com/kubehippie/external-dns-watcher/issues/233)) ([c74c621](https://github.com/kubehippie/external-dns-watcher/commit/c74c621ebb1909a2669b82bc1ead04739fbe2c3f))
+* **minor:** update module sigs.k8s.io/external-dns to v0.23.0 ([#236](https://github.com/kubehippie/external-dns-watcher/issues/236)) ([418a520](https://github.com/kubehippie/external-dns-watcher/commit/418a5208b7a559e146ae78d26008b117fa500cc8))
+* **patch:** update module github.com/onsi/gomega to v1.43.1 ([#232](https://github.com/kubehippie/external-dns-watcher/issues/232)) ([d569111](https://github.com/kubehippie/external-dns-watcher/commit/d56911179df813110314026a49fa2e173b9f961e))
+
 ## [3.1.0](https://github.com/kubehippie/external-dns-watcher/compare/v3.0.6...v3.1.0) (2026-09-14)
 
 ### Features

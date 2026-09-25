@@ -28,7 +28,7 @@ jobs:
       - name: Run linter
         uses: golangci/golangci-lint-action@v9
         with:
-          version: v2.13.2
+          version: v2.14.0
           install-mode: goinstall
 
   chart:

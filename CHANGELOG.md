@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.3.0](https://github.com/kubehippie/external-dns-watcher/compare/v3.2.0...v3.3.0) (2026-09-28)
+
+### Dependencies
+
+* **minor:** update dependency golangci/golangci-lint to v2.14.0 ([#242](https://github.com/kubehippie/external-dns-watcher/issues/242)) ([0897341](https://github.com/kubehippie/external-dns-watcher/commit/089734144b399df66431af426c73076a8b2ee084))
+* **minor:** update module github.com/onsi/gomega to v1.44.0 ([#243](https://github.com/kubehippie/external-dns-watcher/issues/243)) ([60c35ed](https://github.com/kubehippie/external-dns-watcher/commit/60c35ed4f6f361735bb568d948e2613724c6874a))
+* **mise:** update dependency kubectl to v1.37.1 ([#239](https://github.com/kubehippie/external-dns-watcher/issues/239)) ([cf7e0b8](https://github.com/kubehippie/external-dns-watcher/commit/cf7e0b85170e94a825abf35ee45f9a73a07b3073))
+* **mise:** update dependency prek to v0.5.4 ([#244](https://github.com/kubehippie/external-dns-watcher/issues/244)) ([a0bad38](https://github.com/kubehippie/external-dns-watcher/commit/a0bad3806376fb914c1e749e04ab7925b37e00ef))
+* **patch:** update kubernetes monorepo to v0.37.1 ([#240](https://github.com/kubehippie/external-dns-watcher/issues/240)) ([22450ee](https://github.com/kubehippie/external-dns-watcher/commit/22450eefc0411b73962197ee5c70056d7a2f2ca2))
+
 ## [3.2.0](https://github.com/kubehippie/external-dns-watcher/compare/v3.1.0...v3.2.0) (2026-09-20)
 
 ### Bugfixes

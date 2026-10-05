@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.3.1](https://github.com/kubehippie/external-dns-watcher/compare/v3.3.0...v3.3.1) (2026-10-05)
+
+### Bugfixes
+
+* **deps:** update golang:1.27 docker digest to e0174e5 ([#248](https://github.com/kubehippie/external-dns-watcher/issues/248)) ([1813f4b](https://github.com/kubehippie/external-dns-watcher/commit/1813f4b51c58640aa4898cd87b18892d1348a002))
+
+### Dependencies
+
+* **mise:** update dependency betterleaks to v1.9.0 ([#247](https://github.com/kubehippie/external-dns-watcher/issues/247)) ([071a640](https://github.com/kubehippie/external-dns-watcher/commit/071a6409dfdb96f7a7e80f022fe1aa987a16fa06))
+* **mise:** update dependency prek to v0.5.5 ([#252](https://github.com/kubehippie/external-dns-watcher/issues/252)) ([f9c3570](https://github.com/kubehippie/external-dns-watcher/commit/f9c357055ec2e625011bbca014f52312b20fc349))
+* **mise:** update dependency tilt to v0.37.8 ([#250](https://github.com/kubehippie/external-dns-watcher/issues/250)) ([a0d042e](https://github.com/kubehippie/external-dns-watcher/commit/a0d042e96c7573d59db3584a326923f468fac415))
+* **mise:** update dependency yq to v4.54.1 ([#246](https://github.com/kubehippie/external-dns-watcher/issues/246)) ([4b5c6b1](https://github.com/kubehippie/external-dns-watcher/commit/4b5c6b17712309282654a893fac1e7bc71f93dab))
+* **patch:** update dependency kubernetes-sigs/kustomize to v5.8.2 ([#249](https://github.com/kubehippie/external-dns-watcher/issues/249)) ([af27c1d](https://github.com/kubehippie/external-dns-watcher/commit/af27c1d1d8da0aa7d9c959c9927a1eb9ffaf9b32))
+* **patch:** update module sigs.k8s.io/controller-runtime to v0.25.2 ([#251](https://github.com/kubehippie/external-dns-watcher/issues/251)) ([9511b39](https://github.com/kubehippie/external-dns-watcher/commit/9511b39569c0ad27e61989f8fbebc5e696875de7))
+
 ## [3.3.0](https://github.com/kubehippie/external-dns-watcher/compare/v3.2.0...v3.3.0) (2026-09-28)
 
 ### Dependencies

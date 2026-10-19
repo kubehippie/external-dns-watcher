@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.4.0](https://github.com/kubehippie/external-dns-watcher/compare/v3.3.2...v3.4.0) (2026-10-19)
+
+### Bugfixes
+
+* **deps:** update golang:1.27 docker digest to 007a316 ([#260](https://github.com/kubehippie/external-dns-watcher/issues/260)) ([5b7a5df](https://github.com/kubehippie/external-dns-watcher/commit/5b7a5df27e24a3a5176b328a7525ef9e4d65869e))
+* **deps:** update golang:1.27 docker digest to 8201530 ([#261](https://github.com/kubehippie/external-dns-watcher/issues/261)) ([9d70faa](https://github.com/kubehippie/external-dns-watcher/commit/9d70faad640a734ea8004656b1314f7e5be940ec))
+
+### Dependencies
+
+* **minor:** update dependency golangci/golangci-lint to v2.15.0 ([#265](https://github.com/kubehippie/external-dns-watcher/issues/265)) ([1844aed](https://github.com/kubehippie/external-dns-watcher/commit/1844aedd1bf4ae01b0f729e953147bd0c6303d41))
+* **minor:** update dependency kubernetes-sigs/controller-tools to v0.23.0 ([#263](https://github.com/kubehippie/external-dns-watcher/issues/263)) ([e586492](https://github.com/kubehippie/external-dns-watcher/commit/e586492663c02eb9be78af767b7e920a6b28aa8d))
+* **mise:** update dependency helm to v4.3.1 ([#262](https://github.com/kubehippie/external-dns-watcher/issues/262)) ([8cde27e](https://github.com/kubehippie/external-dns-watcher/commit/8cde27ec3536817008254ae48b3dc6be0a6cc0e5))
+* **mise:** update dependency prek to v0.5.6 ([#266](https://github.com/kubehippie/external-dns-watcher/issues/266)) ([a74d7bd](https://github.com/kubehippie/external-dns-watcher/commit/a74d7bd02d4c67adde91799c7db621c330a9001a))
+
 ## [3.3.2](https://github.com/kubehippie/external-dns-watcher/compare/v3.3.1...v3.3.2) (2026-10-12)
 
 ### Bugfixes

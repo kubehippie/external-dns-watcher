@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.5.1](https://github.com/kubehippie/external-dns-watcher/compare/v3.5.0...v3.5.1) (2026-11-02)
+
+### Bugfixes
+
+* **deps:** update gcr.io/distroless/static:nonroot docker digest to 25ac8f0 ([#283](https://github.com/kubehippie/external-dns-watcher/issues/283)) ([8cf01bb](https://github.com/kubehippie/external-dns-watcher/commit/8cf01bbf7173047642df7154aed43048964cdf5b))
+* **deps:** update golang:1.27 docker digest to 2920bb1 ([#280](https://github.com/kubehippie/external-dns-watcher/issues/280)) ([857519b](https://github.com/kubehippie/external-dns-watcher/commit/857519b0ee40f701b6db3056438d1a9abd9cfc5a))
+* **deps:** update golang:1.27 docker digest to 6f1acc8 ([#277](https://github.com/kubehippie/external-dns-watcher/issues/277)) ([c5991cc](https://github.com/kubehippie/external-dns-watcher/commit/c5991cc86958e5b9e40fff4e6f33d892d8e054a8))
+* **deps:** update golang:1.27 docker digest to 898838c ([#278](https://github.com/kubehippie/external-dns-watcher/issues/278)) ([bb80f54](https://github.com/kubehippie/external-dns-watcher/commit/bb80f549283703a8688664c15f76b2169283a73e))
+* **deps:** update golang:1.27 docker digest to 9048d5e ([#275](https://github.com/kubehippie/external-dns-watcher/issues/275)) ([e63729f](https://github.com/kubehippie/external-dns-watcher/commit/e63729f9b3665be62283cbd2200fd7bf1b3ce479))
+* **deps:** update golang:1.27 docker digest to 921f611 ([#276](https://github.com/kubehippie/external-dns-watcher/issues/276)) ([acb6044](https://github.com/kubehippie/external-dns-watcher/commit/acb6044188a4ec0034a44ffdab6bf755a1f2e160))
+
+### Dependencies
+
+* **mise:** update dependency kubectl to v1.37.2 ([#279](https://github.com/kubehippie/external-dns-watcher/issues/279)) ([f91ba4b](https://github.com/kubehippie/external-dns-watcher/commit/f91ba4bd1eff23f4ce20d88395e8cf618dce022c))
+* **mise:** update dependency prek to v0.5.9 ([#282](https://github.com/kubehippie/external-dns-watcher/issues/282)) ([3869ad6](https://github.com/kubehippie/external-dns-watcher/commit/3869ad607643f28d71477a8542c17c888965a94c))
+* **patch:** update kubernetes monorepo to v0.37.2 ([#281](https://github.com/kubehippie/external-dns-watcher/issues/281)) ([9e52d16](https://github.com/kubehippie/external-dns-watcher/commit/9e52d169e0a7d64edc93bc8cf98f135ddc0c7b6d))
+
 ## [3.5.0](https://github.com/kubehippie/external-dns-watcher/compare/v3.4.0...v3.5.0) (2026-10-26)
 
 ### Bugfixes

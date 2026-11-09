@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.6.0](https://github.com/kubehippie/external-dns-watcher/compare/v3.5.1...v3.6.0) (2026-11-09)
+
+### Bugfixes
+
+* **deps:** update golang:1.27 docker digest to 0c050fe ([#290](https://github.com/kubehippie/external-dns-watcher/issues/290)) ([0c5e497](https://github.com/kubehippie/external-dns-watcher/commit/0c5e4974fa969589c582eba507dc1e8b77c349c2))
+* **deps:** update golang:1.27 docker digest to a386c44 ([#289](https://github.com/kubehippie/external-dns-watcher/issues/289)) ([8c850fb](https://github.com/kubehippie/external-dns-watcher/commit/8c850fb4d4cc07fe2f8f8a598bc74ab462aea593))
+* **deps:** update golang:1.27 docker digest to c292963 ([#288](https://github.com/kubehippie/external-dns-watcher/issues/288)) ([5e75989](https://github.com/kubehippie/external-dns-watcher/commit/5e75989e57f1d0980773f7c6f0344bc00049e91e))
+* **deps:** update golang:1.27 docker digest to e519d3b ([#291](https://github.com/kubehippie/external-dns-watcher/issues/291)) ([e5f9916](https://github.com/kubehippie/external-dns-watcher/commit/e5f9916723c39d42b4ef9e784746959cbe6c02ef))
+
+### Dependencies
+
+* **minor:** update module github.com/onsi/ginkgo/v2 to v2.34.0 ([#284](https://github.com/kubehippie/external-dns-watcher/issues/284)) ([3b98465](https://github.com/kubehippie/external-dns-watcher/commit/3b9846594365a68db384754e90d30272a662bcec))
+* **mise:** update dependency betterleaks to v1.10.0 ([#287](https://github.com/kubehippie/external-dns-watcher/issues/287)) ([740735c](https://github.com/kubehippie/external-dns-watcher/commit/740735cfd89ccc144194d18a7881bf7101d63c7e))
+* **mise:** update dependency prek to v0.5.10 ([#285](https://github.com/kubehippie/external-dns-watcher/issues/285)) ([94030ec](https://github.com/kubehippie/external-dns-watcher/commit/94030ec50355b2cda403f99781409af950abba70))
+* **mise:** update dependency yq to v4.54.2 ([#292](https://github.com/kubehippie/external-dns-watcher/issues/292)) ([043317d](https://github.com/kubehippie/external-dns-watcher/commit/043317d3a0f1756658058525e95b8b580a1457cc))
+* **mise:** update dependency yq to v4.54.3 ([#293](https://github.com/kubehippie/external-dns-watcher/issues/293)) ([727cfa2](https://github.com/kubehippie/external-dns-watcher/commit/727cfa247aac06c2befcafc805b53882d5bcce76))
+
 ## [3.5.1](https://github.com/kubehippie/external-dns-watcher/compare/v3.5.0...v3.5.1) (2026-11-02)
 
 ### Bugfixes

@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.6.1](https://github.com/kubehippie/external-dns-watcher/compare/v3.6.0...v3.6.1) (2026-11-16)
+
+### Bugfixes
+
+* **deps:** update gcr.io/distroless/static:nonroot docker digest to aafe993 ([#298](https://github.com/kubehippie/external-dns-watcher/issues/298)) ([f57ba87](https://github.com/kubehippie/external-dns-watcher/commit/f57ba876545394a979d893277e5079f0e6d6a56a))
+* **deps:** update golang:1.27 docker digest to 01aa404 ([#294](https://github.com/kubehippie/external-dns-watcher/issues/294)) ([f414a51](https://github.com/kubehippie/external-dns-watcher/commit/f414a513c339b1126572447ab09d5a74125287ea))
+* **deps:** update golang:1.27 docker digest to ec47ea3 ([#296](https://github.com/kubehippie/external-dns-watcher/issues/296)) ([66237cb](https://github.com/kubehippie/external-dns-watcher/commit/66237cb8d7985c8ac8d37250eab7d68bf9a3566c))
+* **deps:** update golang:1.27 docker digest to fe517ac ([#303](https://github.com/kubehippie/external-dns-watcher/issues/303)) ([18fad5f](https://github.com/kubehippie/external-dns-watcher/commit/18fad5f6fdaedab472fbfd04a1c8b90b141971b5))
+
+### Dependencies
+
+* **mise:** update dependency betterleaks to v1.10.1 ([#297](https://github.com/kubehippie/external-dns-watcher/issues/297)) ([3f59cbf](https://github.com/kubehippie/external-dns-watcher/commit/3f59cbffee08037f381e09b0d2f3dcd9f1eb2bcd))
+* **mise:** update dependency go to v1.27.4 ([#295](https://github.com/kubehippie/external-dns-watcher/issues/295)) ([3d9658b](https://github.com/kubehippie/external-dns-watcher/commit/3d9658b025d868ccd8353c0ad1d13ad02e6eff97))
+* **mise:** update dependency helm to v4.3.2 ([#299](https://github.com/kubehippie/external-dns-watcher/issues/299)) ([739b350](https://github.com/kubehippie/external-dns-watcher/commit/739b3504926683d43e1debe033d357f8ca32a5cb))
+* **mise:** update dependency tilt to v0.37.9 ([#300](https://github.com/kubehippie/external-dns-watcher/issues/300)) ([14e00e5](https://github.com/kubehippie/external-dns-watcher/commit/14e00e5eab666cb32bc043452c9224994cc8fbe5))
+
 ## [3.6.0](https://github.com/kubehippie/external-dns-watcher/compare/v3.5.1...v3.6.0) (2026-11-09)
 
 ### Bugfixes

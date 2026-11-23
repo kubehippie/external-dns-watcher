@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.6.2](https://github.com/kubehippie/external-dns-watcher/compare/v3.6.1...v3.6.2) (2026-11-23)
+
+### Bugfixes
+
+* **deps:** update gcr.io/distroless/static:nonroot docker digest to 8ce6dd8 ([#307](https://github.com/kubehippie/external-dns-watcher/issues/307)) ([52d3744](https://github.com/kubehippie/external-dns-watcher/commit/52d37440d1619aca04dc4d5ad5af732918f79dd0))
+* **deps:** update golang:1.27 docker digest to 205c763 ([#306](https://github.com/kubehippie/external-dns-watcher/issues/306)) ([1a437e1](https://github.com/kubehippie/external-dns-watcher/commit/1a437e1c3315353b94cbe90aa5fb7a9e99e1d02e))
+
+### Dependencies
+
+* **mise:** update dependency prek to v0.5.11 ([#304](https://github.com/kubehippie/external-dns-watcher/issues/304)) ([b51d42e](https://github.com/kubehippie/external-dns-watcher/commit/b51d42e5937c7a6c4721bc8d32f86e12693d8018))
+* **patch:** update module sigs.k8s.io/controller-runtime to v0.25.3 ([#305](https://github.com/kubehippie/external-dns-watcher/issues/305)) ([ee6b618](https://github.com/kubehippie/external-dns-watcher/commit/ee6b61875aa261bbeda9407120e0891971434388))
+
 ## [3.6.1](https://github.com/kubehippie/external-dns-watcher/compare/v3.6.0...v3.6.1) (2026-11-16)
 
 ### Bugfixes
